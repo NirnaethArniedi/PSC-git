@@ -4,3 +4,6 @@
 *.aux
 *.out
 *.ps
+*.bbl
+*.blg
+

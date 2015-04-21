@@ -30,6 +30,7 @@
 \usepackage{tikz}
 \usepackage{float}
 \usepackage{pgfplots}
+\usepackage[version=3]{mhchem}
 \usepackage{siunitx}
 \sisetup{
 unitsep = \cdot,
@@ -38,6 +39,20 @@ expproduct = \cdot
 }
 
 \usepackage[coverpage,fancysections]{polytechnique}
+
+\usepackage[pdftex]{hyperref}
+\hypersetup{%
+ pdftitle = {PSC - Rapport final},%
+ pdfsubject = {},%
+ pdfkeywords = {},%
+ pdfcreator = {pdfLaTeX},%
+ pdfproducer = {pdfLaTeX},%
+ bookmarksnumbered = true,%
+ pdfstartview = FitH,%
+ pdfpagelayout = OneColumn,%
+ colorlinks = false,%
+ pdfborder = {0 0 0}%
+}
 
 \newcommand{\smartgrid}{\emph{Smart-Grid}}
 \newcommand{\smartgrids}{\emph{Smart-Grids}}
