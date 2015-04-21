@@ -1,0 +1,110 @@
+\section{Contexte et données}
+
+	\subsection{Enjeux et problématique}
+	
+		Dans cette partie, nous allons tout d’abord détailler la distribution grande échelle de l’électricité dans le but de comprendre les enjeux de l’étude qui va suivre. Celle-ci est motivée par le fait que la répartition de cette distribution n’est pas éparpillée tout au long de la journée mais dans des périodes précises qui sont les pics de consommation que nous étudierons ensuite. La solution proposée par GDF Suez concernant les pics de consommation, est le Smart Grid, nous le détaillerons dans une troisième partie. Celui-ci peut être complété par un système qui s’appelle l’agrégateur de flexibilité et qui sera détaillé après. Enfin nous replacerons notre PSC dans ce contexte.
+	%% A travailler, ça pique la face comme intro!
+		
+		\subsubsection{Distribution de l'électricité}
+		
+			Le prix de l'électricité, celui que les français peuvent lire sur leur facture, est composé de quatre parties (chiffres moyens en 2013) :
+			\begin{itemize}
+				\item la production (31\%) ;
+				\item l'acheminement par le gestionnaire de réseau (30\%) ;
+				\item la commercialisation par le fournisseur (8\%) ;
+				\item les taxes et la contribution au service public de l'électricité (31\%).
+			\end{itemize}
+			
+			Précisons ce qui se cache derrière ces parties.
+			La production est l'étape de transformation des sources d'énergie en électricité.
+			En France, la principale source d'énergie est le nucléaire (78\%). Viennent ensuite les sources thermiques (charbon, gaz) et hydrauliques (9\% chacune), puis les énergies renouvelables intermittentes (éolien: 2\%, photovoltaïque: 1\%) ou continue (géothermie: 1\%).
+			
+			Le nucléaire, l'hydraulique et la géothermie permettent une production continue (avec des ajustements possibles pour les barrages hydroélectriques), et constituent donc une base solide pour la production électrique en France. Les sources thermiques sont essentiellement utilisées en période de forte consommation, car il est très rapide de mettre en fonctionnement une centrale à charbon par exemple, mais de telles centrales sont très polluantes (rejet de gaz à effet de serre dans l'atmosphère). Les autres sources d'énergie produisent en fonction des conditions climatiques (soleil, vent) et sont donc moins fiables. En particulier, on ne peut pas s'appuyer sur de telles sources d'énergies pour faire face à un pic de consommation.
+			
+			L'acheminement consiste à amener l'électricité depuis la centrale de production vers le consommateur final. On peut décomposer cet acheminement en deux parties : le transport (lignes à haute et très haute tension) et la distribution (lignes à moyenne et basse tension). Les gestionnaires de réseaux d'électricité sont chargés de l'entretien et du bon fonctionnement des réseaux (sécurité, dépannage, qualité, relevé des compteurs). Ils sont rémunérés par le Tarif d'Utilisation des Réseaux Publics d'Électricité (TURPE), fixé par l'État. Les gestionnaires de réseaux sont RTE pour le transport et ERDF et les ELD (Entreprises Locales de Distribution) pour la distribution.
+			
+			La commercialisation est assurée par le fournisseur qui est le contact privilégié du client. Il est aussi en relation avec les gestionnaires de réseaux de distributions. Il répercute les prix de l'acheminement et les taxes dans ses tarifs. Le consommateur peut choisir entre des prix réglementés fixés par les pouvoirs publics et proposés par les distributeurs historiques (comme EDF) ou une offre à prix de marché (contrat).
+			
+			L'électricité est soumise à quatre taxes fixées par les pouvoirs publics : la TVA, la Contribution au Service Public de l'Électricité (CSPE), la Taxe sur la Consommation Finale d'Électricité (TCFE) et la Contribution Tarifaire d'Acheminement (CTA). La CSPE permet essentiellement d'investir dans le développement des énergies renouvelables et de financer le surcoût de la production d'électricité dans les zones non connectées au réseau continental. La TCFE est perçue par les communes et les départements et permet de financer les travaux sur les installations électriques locales. La CTA finance partiellement les retraites des salariés des gestionnaires de transport.
+			Les fournisseurs rencontrent des difficultés à répondre à la demande des clients pendant certaines périodes : les pics de consommation.
+		
+		
+		\subsubsection{Pic de consommation}
+			Une pointe de consommation électrique est la consommation la plus élevée sur un réseau électrique. Elle peut résulter de plusieurs facteurs : temporels (heure de pointe), climatiques (forte chaleur, températures trop basses), ...
+			
+			On en distingue trois types majeurs :
+			
+			\begin{itemize}
+				\item les pointes journalières qui se produisent souvent en fin de journée un jour de semaine, lorsque les personnes rentrent du travail; la pointe sera plus accentuée dans les réseaux où le chauffage de l'eau et les appareils électroménagers utilisent l'électricité plutôt que le gaz;
+				\item les pointes saisonnières peuvent survenir en été ou en hiver (cas de la France), mais dans les deux cas, les températures extrêmes influent sur la demande de climatisation ou de chauffage électrique des ménages;
+				\item certaines pointes sont aussi causées par les infrastructures d'utilités publiques telles que l'éclairage public, le transport ferroviaire, etc.
+			\end{itemize}
+			
+			La situation de la France est la suivante : la pointe progresse  plus vite que la consommation électrique : elle augmente de 3\%, alors que, dans le même temps, la consommation électrique connaît une hausse de 0,6\%. Plusieurs raisons en sont à l'origine, notamment la place du chauffage électrique et le développement de nouveaux usages de l'électricité (équipements électroménagers, informatiques, recharges multiples). Il est donc nécessaire d'agir rapidement pour lutter contre ces pics de consommation qui coûtent cher et ont un impact environnemental au travers des augmentations d'émission de CO$_2$.
+			Par exemple, la perte d'un degré de température se traduit en France en 2012 par une augmentation estimée d'électricité de 2300~MW contre 600~MW en Grande-Bretagne.
+			
+			Quels sont les solutions pour gérer ces pics ? Plusieurs moyens sont mis en œuvre par les gestionnaires de réseau.
+			La solution la plus évidente et la plus ancienne consistait en l'augmentation de la capacité de production par le biais de construction de nouvelles infrastructures de production, de transport et de distribution. Mais cette solution a très vite atteint ces limites d'une part car elle présente des risques environnementaux (émission de CO$_2$) mais aussi des risques de blackout dues à la surcharge d'alimentation.
+			Une autre solution consiste à baisser le niveau de la consommation en commandant à un opérateur dit \og d'effacement \fg~la coupure immédiate et coordonnée de certains postes de consommation, tout cela est géré par des réseaux intelligents : les \textit{Smart Grids}.
+		
+			
+		\subsubsection{Les \emph{Smart Grids}}
+		
+			L'effacement résidentiel consiste à réduire temporairement la consommation d'électricité d'un grand nombre de petits sites, en particulier de logements, de façon à diminuer la demande. Il s'agit par exemple d'interrompre brièvement, mais de façon synchronisée, l'alimentation de radiateurs ou climatiseurs situés dans des logements pour, au total, réduire la consommation d'électricité d'une région ou du pays.
+			
+			Cela se matérialise par la mise en place d'un boîtier (Linky) qui s'installe sur le tableau électrique et qui permet de mesurer et commander certains usages en temps réel (par exemple, chauffe-eau et radiateurs). Un système d'information complète le tout en recueillant les données et générant les ordres de modulation. Le pilotage est opéré à distance par un opérateur et ne requiert aucune action directe des utilisateurs qui souscrivent à ce service. Un consommateur qui dispose d'une offre d'effacement se verra ainsi rémunéré pour le service qu'il apporte au système électrique
+			
+			Avec le développement des nouvelles technologies, les gestionnaires du réseau (EDF, RTE, ERDF) ont mis à profit ces TICS pour moderniser leurs réseaux de distribution. Ces réseaux intelligents, les Smarts Grids, permettent de déconnecter des appareils électriques non primordiaux lors de fortes demandes en électricité. Ce nouveau réseau sert avant tout à limiter les risques d'apparition de pointes importantes de consommation électrique et maintenir une fourniture d'électricité efficace, durable, économique et sécurisée.
+			
+			Ces Smarts Grids permettent de tenir compte de la variabilité des sources de production d'électricité renouvelable, c'est-à-dire leur fluctuation en fonction des contraintes météorologiques (ensoleillement, vents, etc.), ainsi que l'augmentation de la production dite décentralisée (parc éolien raccordé au réseau de distribution ou consommateur final disposant de panneaux photovoltaïques sur le toit de son habitat qui devient producteur d'énergie par exemple) et les ambitions de réduction des consommations d'énergie complexifient la gestion de l'équilibre entre production et consommation. En favorisant l'intégration des productions d'électricité à partir d'énergies de sources renouvelables, les Smart grids ont un impact fort sur la réduction d'émission de CO$_2$.
+			
+			Les effets de ces Smart Grids peuvent être développés grâce à un agrégateur de flexibilité que nous allons maintenant étudier.
+		
+		
+		\subsubsection{L'agrégateur de flexibilité}
+		
+			L’agrégateur est une prestation complémentaire, un intermédiaire entre le système électrique et ses utilisateurs. Il crée de la valeur pour ses clients en revendant de la flexibilité au système électrique, ce que l'on qualifie parfois de \og centrale électrique virtuelle \fg. Pour que tout cela fonctionne, il faut stocker de l’énergie pendant les périodes creuses pour pouvoir faire face aux pics. Ce stockage se fait au niveau :
+			
+			\begin{itemize}
+				\item individuel : grâce aux batteries des VE, ballon d'eau chaude ;
+				\item des bâtiments : inertie thermique, batterie chaude ou froide ;
+				\item des collectivités : barrage électrique, château d'eau ;
+				\item industriel : stockage de produits intermédiaires (cimenterie).
+			\end{itemize}
+			
+			Cela nécessite :
+	
+			\begin{itemize}
+				\item de rendre les immeubles et  les sites industriels qu'il pilote \og intelligents \fg~ ;
+				\item de modèles pour prévoir les résultats de son action ;
+				\item d'informations pour anticiper les évolutions du marché.
+			\end{itemize}
+			
+			Malheureusement tout cela est assez lent à se mettre en place pour plusieurs raisons : la loi NOME ne permet pas la mise en place de ces réseaux avant 2016, de plus le consommateur doit avoir la possibilité de revenir en mode \og normal \fg~ à tout moment, des études sur le comportement des utilisateurs doivent être faites pour pouvoir choisir les moments où effacer l’électricité ou non.
+	
+		\subsubsection{Notre PSC et son inscription dans ce contexte}
+		
+			Des solutions au problème des pics de consommation ont été apportées à travers les Smart Grids et l’agrégateur de flexibilité, cependant ces deux systèmes ont besoin d’informations sur la consommation d’électricité des clients pour soit effacer la consommation à travers les Smart Grids, soit pour savoir quand l’agrégateur devra redistribuer l’énergie accumulée. Les fournisseurs, tels que GDF Suez, peuvent obtenir cela pour les habitudes actuelles car la consommation d’électricité vient principalement de l’électroménager, de la lumière, du chauffage. Mais un changement commence à s’opérer dans le quotidien des individus et il s’agit de la voiture électrique. En effet, celle-ci va amener des consommations supplémentaires d’électricité à travers sa recharge et prévoir comment cela va influer sur les pics de consommation mérite une étude poussée. C’est là qu’intervient notre PSC : nous allons étudier le comportement des utilisateurs de véhicules électriques pour savoir quand est-ce qu’ils rechargeront leur véhicule et quel effet cela aura-t-il sur le réseau. GDF Suez souhaite aussi gérer intelligemment l’augmentation des pics de consommation dus aux véhicules électriques en apportant une nouvelle idée : lorsque le véhicule sera branché il sera possible de ne pas le recharger pour repousser l’utilisation d’énergie à un moment où le réseau sera moins demandé ou même de fournir de l’énergie au réseau pour que l’effet bénéfique soit amplifié. Nous tenterons de prévoir le nombre de personnes intéressés par cette offre et comment elle influera sur le réseau au cours de notre étude.
+			
+			
+	
+	\subsection{Données collectées}
+	
+		Nous avons donc cherché des informations sur le comportement des utilisateurs de véhicules électriques que nous analyserons ensuite. Malheureusement, puisque leur nombre est aujourd’hui peu conséquent (environ 30000) il est difficile de trouver des études dessus. Nous avons cependant réussi à en réunir quelques-unes :
+		
+		\begin{itemize}
+			\item une étude du Club Alsace Voiture Electrique sur les habitudes de ces utilisateurs. L’enquête est intéressante et nous donne des informations (fréquence des recharges des voitures, lieu d’utilisation des bornes…) et on peut la considérer comme représentative car elle a été faite auprès de 500 utilisateurs ce qui représente environ 3\% des utilisateurs totaux ;
+			\item un échange avec La Poste nous a permis de recueillir des informations sur l’utilisation de leur flotte de véhicules électriques qui représentent 5000 véhicules ;
+			\item un échange avec \textit{Autolib’} nous a permis d’avoir des informations générales sur ces véhicules qui représentent environ 3500 véhicules ;
+			\item des données techniques sur les différentes marques principales de véhicules électriques (nombre, consommation, autonomie…).
+		\end{itemize}
+		
+		Ces données nous ont été utiles mais nous ne pouvions pas déterminer à quelles heures les trajets étaient effectués, quelles distances ont été parcourues ou d’autres informations de ce type qui sont cruciales pour pouvoir modéliser la demande en électricité due aux véhicules électriques en fonction de l’heure de la journée. Malheureusement, nous n’avons pas réussi à trouver ces informations pour les véhicules électriques, nous avons donc décidé de considérer que les données des voitures à essence pouvaient être extrapolées aux véhicules électriques. Nous avons ensuite concentré notre étude sur les jours ouvrés et dans ce cas, les principaux trajets de la journée sont ceux entre le domicile et le travail. Nous avons donc trouvé les données suivantes :
+		
+		\begin{itemize}
+			\item l’enquête \og La circulation routière en Ile-De-France en 2010 \fg~réalisée par l’OMNIL qui possède une partie intéressante dans laquelle on voit le trafic routier en Ile-de-France en fonction de l’heure de la journée. Nous avons trouvé de plus l’exploitation de cette enquête qui permet d’avoir accès aux informations de manière plus synthétique ;
+			\item l’ \og Enquête auprès des salariés d’Ile-De-France sur les transports en commun domicile-travail \fg~nous a permis d’en savoir plus sur ces trajets ce qui nous a  été très utile pour la modélisation ;
+			\item l’ \og Enquête nationale des transports et des déplacements réalisé en 2008 \fg~qui nous a permis d’avoir accès à la distance moyenne des trajets, à leur durée moyenne.
+		\end{itemize}
+		
+		Ces données sont suffisamment récentes pour être utilisées lors de notre modélisation.
