@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.4.18)  21 APR 2015 19:24
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2014.4.18)  21 APR 2015 23:39
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -2898,87 +2898,91 @@ File: logovert.eps Graphic file (type eps)
 <logovert.eps> [1
 
 ]
-Overfull \hbox (135.77583pt too wide) in paragraph at lines 49--49
- \OT1/lmss/bx/n/17.28 DONN1[PLEASEINSERT\PRERENDERUNICODE{É}INTOPREAMBLE]ES| 
- []
-
 File: filetlongrouge.eps Graphic file (type eps)
+ <filetlongrouge.eps>
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
+File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
+)
+File: filetlongrouge.eps Graphic file (type eps)
+
 <filetlongrouge.eps>
 File: filetcourtbleuclair.eps Graphic file (type eps)
  <filetcourtbleuclair.eps>
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 )
-(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
-File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
-)
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 56.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 79.
 
 (/usr/share/texmf/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/sc' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 56.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 79.
 File: logohori.eps Graphic file (type eps)
  <logohori.eps> [1
 
 ]
-(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-1.def
+File: logohori.eps Graphic file (type eps)
+ <logohori.eps>
+[2] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-1.def
 File: uni-1.def 2013/05/13 UCS: Unicode data U+0100..U+01FF
 )
 File: logohori.eps Graphic file (type eps)
- <logohori.eps>
-[2]
-Overfull \hbox (5.77663pt too wide) in paragraph at lines 135--136
+
+<logohori.eps> [3]
+Overfull \hbox (5.77663pt too wide) in paragraph at lines 158--159
 \OT1/lmr/m/n/10 l'agr^^Segateur de flexi-bi-lit^^Se, ce-pen-dant ces deux syst^
 ^Remes ont be-soin d'in-for-ma-tions sur la consom-ma-tion d'^^Selectricit^^Se
  []
 
 File: filetcourtbleuclair.eps Graphic file (type eps)
 <filetcourtbleuclair.eps>
-Overfull \hbox (3.11667pt too wide) in paragraph at lines 144--145
+Overfull \hbox (3.11667pt too wide) in paragraph at lines 167--168
 [][]\OT1/lmr/m/n/10 une ^^Setude du Club Al-sace Voi-ture Elec-trique sur les h
 a-bi-tudes de ces uti-li-sa-teurs. L'enqu^ete est int^^Seressante
  []
 
-File: logohori.eps Graphic file (type eps)
-<logohori.eps> [3]
-Overfull \hbox (3.34187pt too wide) in paragraph at lines 146--147
+
+Overfull \hbox (3.34187pt too wide) in paragraph at lines 169--170
 [][]\OT1/lmr/m/n/10 un ^^Sechange avec \OT1/lmr/m/it/10 Au-to-lib' \OT1/lmr/m/n
 /10 nous a per-mis d'avoir des in-for-ma-tions g^^Sen^^Serales sur ces v^^Sehic
 ules qui repr^^Sesentent
  []
 
+File: logohori.eps Graphic file (type eps)
+<logohori.eps> [4]
 File: filetlongrouge.eps Graphic file (type eps)
-<filetlongrouge.eps>
+ <filetlongrouge.eps>
 File: filetcourtbleuclair.eps Graphic file (type eps)
  <filetcourtbleuclair.eps>
 File: fig/BassUtilisateurs.eps Graphic file (type eps)
- <fig/BassUtilisateurs.eps>
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-File: logohori.eps Graphic file (type eps)
-<logohori.eps> [4]
+<fig/BassUtilisateurs.eps>
 File: logohori.eps Graphic file (type eps)
  <logohori.eps> [5]
-Overfull \hbox (10.4356pt too wide) in paragraph at lines 222--222
- |[]\OT1/lmr/m/sc/14.4 Utilisation des mod[]eles de dif-fu-sion pour le march[]
-e du v[]ehicule
+Overfull \hbox (10.4356pt too wide) in paragraph at lines 245--245
+ |[][]\OT1/lmr/m/sc/14.4 Utilisation des mod[]eles de dif-fu-sion pour le march
+[]e du v[]ehicule
  []
 
 File: filetcourtbleuclair.eps Graphic file (type eps)
 <filetcourtbleuclair.eps>
 
-LaTeX Warning: Float too large for page by 35.5488pt on input line 234.
+LaTeX Warning: Float too large for page by 35.5488pt on input line 257.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-PGFPlots: reading {fig/courbeXt.txt}
 File: logohori.eps Graphic file (type eps)
 <logohori.eps> [6]
+PGFPlots: reading {fig/courbeXt.txt}
 PGFPlots: reading {fig/courbeBass.txt}
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: logohori.eps Graphic file (type eps)
+<logohori.eps> [7]
 PGFPlots: reading {fig/SharifRaman.txt}
 
 
@@ -2986,21 +2990,25 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 File: filetcourtbleuclair.eps Graphic file (type eps)
 <filetcourtbleuclair.eps>
-Overfull \vbox (1.06082pt too high) has occurred while \output is active []
-
-File: logohori.eps Graphic file (type eps)
-
-<logohori.eps> [7]
 PGFPlots: reading {fig/graphe5.txt}
 PGFPlots: reading {fig/graphe4.txt}
-File: logohori.eps Graphic file (type eps)
- <logohori.eps> [8]
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 PGFPlots: reading {fig/courbeBass.txt}
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: logohori.eps Graphic file (type eps)
+<logohori.eps> [8]
 File: logohori.eps Graphic file (type eps)
  <logohori.eps> [9]
 File: logohori.eps Graphic file (type eps)
+ <logohori.eps> [10]
+File: logohori.eps Graphic file (type eps)
  <logohori.eps>
-[10]
+[11]
 File: filetlongrouge.eps Graphic file (type eps)
  <filetlongrouge.eps>
 File: filetcourtbleuclair.eps Graphic file (type eps)
@@ -3009,33 +3017,33 @@ File: filetcourtbleuclair.eps Graphic file (type eps)
  <filetcourtbleuclair.eps>
 File: logohori.eps Graphic file (type eps)
 
-<logohori.eps> [11
+<logohori.eps> [12
 
 ]
 File: filetcourtbleuclair.eps Graphic file (type eps)
  <filetcourtbleuclair.eps>
 File: logohori.eps Graphic file (type eps)
- <logohori.eps> [12]
+ <logohori.eps> [13]
 File: filetcourtbleuclair.eps Graphic file (type eps)
 
 <filetcourtbleuclair.eps>
 File: logohori.eps Graphic file (type eps)
- <logohori.eps> [13]
-Overfull \hbox (22.58397pt too wide) in paragraph at lines 514--515
+ <logohori.eps> [14]
+Overfull \hbox (22.58397pt too wide) in paragraph at lines 537--538
 [][]\OT1/lmr/m/n/10 Initialisation de la dis-tance par-cou-rue et du nombre de 
 tra-jets ef-fectu^^Ses par le v^^Sehicule ^^Ra 0 : \OT1/lmtt/m/n/10 distancePar
 courue
  []
 
 
-Overfull \hbox (8.02519pt too wide) in paragraph at lines 529--530
+Overfull \hbox (8.02519pt too wide) in paragraph at lines 552--553
 [][]\OT1/lmr/m/n/10 Cette ini-tia-li-sa-tion cor-res-pond au construc-teur \OT1
 /lmtt/m/n/10 Vehicule::Vehicule(int deltaT) \OT1/lmr/m/n/10 de la classe \OT1/l
 mtt/m/n/10 Vehicule.cpp\OT1/lmr/m/n/10 .
  []
 
 File: logohori.eps Graphic file (type eps)
-<logohori.eps> [14]
+<logohori.eps> [15]
 File: fig/flowPrincipal.eps Graphic file (type eps)
  <fig/flowPrincipal.eps>
 
@@ -3047,16 +3055,16 @@ File: fig/flowTransition.eps Graphic file (type eps)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 File: logohori.eps Graphic file (type eps)
-<logohori.eps> [15]
-File: logohori.eps Graphic file (type eps)
- <logohori.eps> [16]
+<logohori.eps> [16]
 File: logohori.eps Graphic file (type eps)
  <logohori.eps> [17]
+File: logohori.eps Graphic file (type eps)
+ <logohori.eps> [18]
 File: filetcourtbleuclair.eps Graphic file (type eps)
 
 <filetcourtbleuclair.eps>
 File: logohori.eps Graphic file (type eps)
- <logohori.eps> [18
+ <logohori.eps> [19
 
 ] (./brouillon.aux)
 
@@ -3067,10 +3075,10 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  36928 strings out of 493305
  808627 string characters out of 6139897
- 1095844 words of memory out of 5000000
+ 1155574 words of memory out of 5000000
  39647 multiletter control sequences out of 15000+600000
  128301 words of font info for 121 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  55i,10n,75p,10410b,1847s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on brouillon.dvi (19 pages, 205272 bytes).
+Output written on brouillon.dvi (20 pages, 210156 bytes).
