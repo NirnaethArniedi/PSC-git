@@ -1,0 +1,8 @@
+-Préciser Unités des différents variables dimensionnées
+-Définir précisement la manière de switcher pour les positions Travail/repas/maison
+-Prendre en compte dans l'initialisation les variables Physiques de la voiture
+-définir la fonction SmartGrid
+-Donnée répartition : quelqu'un les met au propre une bonne fois pour toute?
+-Comment on évalue le SOC_min? -> Calculé à chaque mise en parking
+-Vehicule.fonction -> remplacer par v.fonction?
+
