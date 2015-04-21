@@ -1,17 +1,18 @@
+
 \begin{tikzpicture}
 % style des noeuds
-\tikzstyle{etat} = [diamond, draw]
+\tikzstyle{etat} = [ellipse, draw]
 \tikzstyle{test} = [rectangle, draw]
 \tikzstyle{instruct} = [rectangle, draw, rounded corners=4pt]
 % style des flèches
 \tikzstyle{suite} = [->, >=stealth', thick, rounded corners=4pt]
 
-% placement des noeuds
-\node[instruct] (initialisation) at (0,0) {Initialisation}
-\node[etat] (etat0) at (0,-1) {\'Etat $t$}
-\node[test] (whichState) at (0,-2) {etatMouvement ?}
-
-% placement des flèches
-\draw[suite] (initialisation) -- (etat0)
-\draw[suite] (etat0) -- (whichState)
+%% placement des noeuds
+\node[instruct] (initialisation) at (0,0) {Initialisation};
+\node[etat] (etat0) at (0,-1) {Etat $t$};
+\node[test] (whichState) at (0,-2) {etatMouvement ?};
+%
+%% placement des flèches
+\draw[suite] (initialisation) -- (etat0);
+\draw[suite] (etat0) -- (whichState);
 \end{tikzpicture}
