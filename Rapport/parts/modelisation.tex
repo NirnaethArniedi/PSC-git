@@ -1,4 +1,4 @@
-\section{Mod\'elisation num\'erique}
+\section{Modélisation numérique}
 	\subsection{Motivations et objectifs}
 		\subsubsection{Motivations}
 			En parallèle de notre étude de la diffusion du véhicule électrique, nous avons travaillé sur le modèle permettant d'évaluer l'impact futur des véhicules électrique sur la consommation globale d'électricité. L'usage de l'outil informatique nous semblant essentiel pour une telle modélisation, étant donné le nombre important de paramètres et la taille de nos échantillons de calculs. Nos efforts se sont donc tournés vers l'élaboration d'un algorithme de calcul capable de produire une courbe représentant la puissance nécessaire à la recharge d'un véhicule électrique au cours du temps.
@@ -68,6 +68,7 @@
 			\item L'état de charge (State of Charge ou SOC) : évoluant au cours du temps, évalué en pourcentage de la capacité totale de batterie;
 			\item L'état de mouvement du véhicule et sa position, tels que définis ci-dessus;
 			\item Les horaires de trajets du véhicule : à partir de données statistiques sur les horaires de trajets réels, et du nombre de trajets qu'il va effectuer, chaque véhicule se voit affecter une liste d'horaires à laquelle il est censé partir de sa position actuelle (s'il est insuffisamment chargé il attendra le temps nécessaire à sa recharge).
+			\item La puissance de recharge d'un véhicule: actuellement tous les véhicules ont le même profil de charge, avec une puissance nominale délivrée par le réseau constante fixée à \SI{3,5}{\kilo\watt}.
 		\end{itemize}
 		
 		Dans cette liste de paramètres apparaissent déjà un certain nombre d'hypothèses, qui peuvent sembler assez fortes, sur la définition d'un véhicule : vitesse et longueur des trajets fixes ou encore horaires des trajets définis à l'avance et pour toute la durée de la simulation.
@@ -145,13 +146,11 @@
 	
 		\subsubsection{Boucle de simulation \label{sec.descrSimulation}}
 			
-			L'organisation logique de la partie évolutive de la simulation est présentée dans le diagramme ci dessous (figure \ref{fig.flowPrincipal}). Pour plus de lisibilité le bloc transition est présenté à part, dans la figure \ref{fig.flowTransition}. Ces deux blocs correspondent respectivement aux méthodes \texttt{double Vehicule::simulation(int temps, int deltaT)} et \texttt{int Vehicule::transition(int temps, int deltaT)} de la classe \texttt{Vehicule.cpp}. L'opération de bouclage de la méthode \texttt{simulation} est effectué lors de son appel dans la fonction \texttt{main}.
+			\paragraph{}L'organisation logique de la partie évolutive de la simulation est présentée dans le diagramme ci dessous (figure \ref{fig.flowPrincipal}). Pour plus de lisibilité le bloc transition est présenté à part, dans la figure \ref{fig.flowTransition}. Ces deux blocs correspondent respectivement aux méthodes \texttt{double Vehicule::simulation(int temps, int deltaT)} et \texttt{int Vehicule::transition(int temps, int deltaT)} de la classe \texttt{Vehicule.cpp}. L'opération de bouclage de la méthode \texttt{simulation} est effectué lors de son appel dans la fonction \texttt{main}.
 			
 			La méthode \texttt{simulation} prend en paramètre le \texttt{temps} actuel --- mesuré en nombre de pas de temps \texttt{deltaT} --- et retourne la puissance demandée par le véhicule sur lequel on appelle cette méthode a l'instant \texttt{temps}.
 			La méthode \texttt{transition} prend les mêmes paramètres que \texttt{simulation} et retourne un entier correspondant à l'état de mouvement dans lequel sera le véhicule au prochain pas de temps (\texttt{etatMouvSuivant}).
 			
-			
-		
 			\begin{figure}[h]
 				\centering
 				\caption{Logigramme de la méthode \texttt{simulation} \label{fig.flowPrincipal}}
@@ -162,7 +161,33 @@
 				\caption{Bloc Transition \label{fig.flowTransition}}
 				\includegraphics[height=0.9\textheight]{fig/flowTransition.eps}
 			\end{figure}
-			\input{parts/organigramme/simulation}
+			
+			
+			Dans l’organigramme de la méthode \texttt{transition} on observe deux variables qui n'ont pas encore été décrites.
+			
+			\paragraph{}La première,  \texttt{willToCharge}, est un booléen qui décrit de manière sommaire le comportement de l'utilisateur. On fait l'hypothèse d'un utilisateur rationnel qui ne met son véhicule en charge que lorsque l'autonomie de celui-ci ne lui permet pas de faire les trajets à venir. On simule ainsi le comportement réel des utilisateurs qui, d'après nos données, ne chargent pas leur véhicule de manière systématique, mais en moyenne tous les trois jours.
+			
+			\paragraph{}La deuxième est la fonction \texttt{int smartGrid(Vehicule* v)}. Cette fonction est là pour prendre en compte tous les aspects de \emph{Smart Grid}, \emph{Vehicle to grid}, effacement de charge, etc. C'est dans cette fonction que seront implémentés les différents cas possibles (\emph{use cases}) de monitoring de la charge d'un véhicule. Les \emph{use cases} que nous avons utilisés, et leur implémentation, sont décrits dans la paragraphe \ref{sec.useCases}. 
+			
+			D'un point de vue pratique, cette fonction prend pour argument le véhicule qui est actuellement dans la boucle et retourne un entier qui correspond à un état de charge (\texttt{BRANCHE_EN_CHARGE} ou \texttt{BRANCHE_PAS_EN_CHARGE}) selon l'état du véhicule et la méthode d'effacement utilisée. Cette méthode sera le plus souvent imposée par le fournisseur d’électricité dans la réalité.
+			
+			\paragraph{} Lors de l'appel de la fonction \texttt{main}, la fonction principale du programme, celle ci prend différents arguments :
+			\begin{itemize}
+			\item La longueur du pas de temps, \texttt{deltaT}, en minutes;
+			\item Le nombre $D$ de pas de temps que va durer la simulation;
+			\item Le nombre $N$ de véhicules a générer pour la simulation.
+			\end{itemize}
+			
+			Le tableau \texttt{puissanceReseau}, de taille $D$  et indexé par les pas de temps de la simulation, est ensuite initialisé. Chaque case contiendra la puissance requise par l'ensemble de la flotte modélisée pour se recharger à l'instant correspondant.
+			
+			Ensuite la fonction est basiquement une double boucle :
+			\begin{enumerate}
+			\item Une première boucle sur la taille de l'échantillon, qui génère un véhicule par étape et le fait passer dans la deuxième boucle;
+			\item La deuxième boucle est celle décrite dans l'organigramme \ref{fig.flowPrincipal}, indexée par les pas de temps successifs, ou a chaque itération la fonction \texttt{simulation} rempli la case correspondante de \texttt{puissanceReseau}.
+			\end{enumerate}
+			
+			En sortie, on obtient donc un tableau contenant toutes les informations nécessaires au tracé de la courbe de charge imposée par cette flotte au cours du temps.
+			%	\input{parts/organigramme/simulation}
 		
 		
 		\clearpage
