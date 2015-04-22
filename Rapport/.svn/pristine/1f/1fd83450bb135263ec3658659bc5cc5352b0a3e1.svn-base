@@ -46,12 +46,7 @@ decimalsymbol = comma,
 expproduct = \cdot
 }
 
-\usepackage[coverpage,fancysections,twoside]{polytechnique-psc}
-
-
-
-
-
+\usepackage[coverpage,fancysections]{polytechnique}
 
 \usepackage{hyperref}
 \hypersetup{%
@@ -74,22 +69,17 @@ expproduct = \cdot
 
 %\titleformat{\chapter}[hang]{\Huge\bfseries\sffamily}{\LARGE}{0em}{}[]
 
-\title{Il dit qu'il voit pas le rapport, tagada tagda voila les dalton}
+\title{Il dit qu'il voit pas le rapport,aeae aeae  aeaeae aeaeae aeaeae aeaeae aeaea}
 \subtitle{Sexuel le rapport, sexuel.}
-\author{ Vincent \textsc{Dufour-Décieux} \\ Odilon \textsc{Formery} \\ Ahmed \textsc{Krarti} \\ Louis \textsc{Legrand} \\ Augustin \textsc{Lenormand} \\ Camille \textsc{Masset} }
+\author{ Vincent \textsc{Dufour-Décieux} \\ Odilon \textsc{Formery} \\ Ahmed \textsc{Krarti} \\ Louis \textsc{Legrand} \\ Augustin \textsc{Lenormand} \\   Camille \textsc{Masset} }
 
 \begin{document}
 
 \maketitle
-% % %page blanche après le titre.  
-\clearpage
-	\mbox{}
-	\thispagestyle{empty}\addtocounter{page}{-1}
-\clearpage
 
-\include{parts/introduction}
+%\include{parts/introduction}
 
-\include{parts/contexte_donnees}
+%\include{parts/contexte_donnees}
 
 %\include{parts/diffusion}
 
