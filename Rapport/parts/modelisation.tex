@@ -1,7 +1,7 @@
 \section{Mod\'elisation num\'erique}
 	\subsection{Motivations et objectifs}
 		\subsubsection{Motivations}
-			En parallèle de notre étude de la diffusion du véhicule électrique, nous avons travaillé sur le modèle permettant d'évaluer l'impact futur des véhicules électrique sur la consommation globale d’électricité. L'usage de l'outil informatique nous semblant essentiel pour une telle modélisation, étant donné le nombre important de paramètres et la taille de nos échantillons de calculs. Nos efforts se sont donc tournés vers l'élaboration d'un algorithme de calcul capable de produire une courbe représentant la puissance nécessaire à la recharge d'un véhicule électrique au cours du temps.
+			En parallèle de notre étude de la diffusion du véhicule électrique, nous avons travaillé sur le modèle permettant d'évaluer l'impact futur des véhicules électrique sur la consommation globale d'électricité. L'usage de l'outil informatique nous semblant essentiel pour une telle modélisation, étant donné le nombre important de paramètres et la taille de nos échantillons de calculs. Nos efforts se sont donc tournés vers l'élaboration d'un algorithme de calcul capable de produire une courbe représentant la puissance nécessaire à la recharge d'un véhicule électrique au cours du temps.
 
 			En répétant cet algorithme pour un nombre donné de véhicules, et en sommant les puissances calculées, on obtient ainsi une courbe de charge globale pour cette flotte.
 
@@ -82,7 +82,7 @@
 				
 					\item Pour un VEP nous avons considéré divers cas horaires :
 					\begin{itemize}
-						\item de 7h à 11h tous les trajets d'un particulier le conduise sur son lieu de travail, et dans le cas ou il est déjà sur son lieu de travail un trajet l’amène dans un lieu public (déplacement professionnel);
+						\item de 7h à 11h tous les trajets d'un particulier le conduise sur son lieu de travail, et dans le cas ou il est déjà sur son lieu de travail un trajet l'amène dans un lieu public (déplacement professionnel);
 						\item de 11h à 14h un trajet depuis un lieu public (ou il a pris son repas par exemple) l'amène sur son lieu de travail, et un trajet depuis sa maison ou son lieu de travail l'amène aléatoirement à l'un des deux autres lieu possibles (trajet travail->maison pour le repas par exemple, ou maison->lieu extérieur pour aller chercher les enfants à l'école);
 						\item de 0h à 7h et de 14h à 24h un trajet depuis la maison l'amène sur un lieu public (école des enfants, sortie le soir, courses, etc.), et tout autre trajet a pour direction la maison.
 					\end{itemize}
@@ -101,7 +101,7 @@
 					\item Un VEE aura toujours une borne sur son lieu de travail;
 					\item Un VAP aura toujours une borne disponible dans un lieu public (nous faisons l'assomption que l'utilisateur le ramène toujours près d'une borne après utilisation).
 				\end{enumerate}
-			\item Pour prévenir la "panne sèche" d'un véhicule au cours d'un trajet, nous avons introduit une variable \texttt{socMin} qui contient l'état de charge minimum requis pour voyager jusqu’à la prochaine borne. Le calcul de cette variable est simplifié par la connaissance au préalable des destinations, de l'accès au bornes et de la distance des trajets. Cela peut paraitre un peu artificiel dans le cadre de notre modèle, mais dans la réalité un utilisateur a la plupart du temps connaissance de ses capacités de recharge au cours du trajet, et les prends en compte lorsqu'il débranche ou non son véhicule. Nous supposons que le véhicule ne peut redémarrer s'il n'a pas atteint un état de charge supérieur ou égal a \texttt{socMin}. 
+			\item Pour prévenir la "panne sèche" d'un véhicule au cours d'un trajet, nous avons introduit une variable \texttt{socMin} qui contient l'état de charge minimum requis pour voyager jusqu'à la prochaine borne. Le calcul de cette variable est simplifié par la connaissance au préalable des destinations, de l'accès au bornes et de la distance des trajets. Cela peut paraitre un peu artificiel dans le cadre de notre modèle, mais dans la réalité un utilisateur a la plupart du temps connaissance de ses capacités de recharge au cours du trajet, et les prends en compte lorsqu'il débranche ou non son véhicule. Nous supposons que le véhicule ne peut redémarrer s'il n'a pas atteint un état de charge supérieur ou égal a \texttt{socMin}. 
 			
 		\end{itemize}
 
