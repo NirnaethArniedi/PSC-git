@@ -174,8 +174,8 @@
 			
 			Ensuite la fonction est basiquement une double boucle :
 			\begin{enumerate}
-			\item Une première boucle sur la taille de l'échantillon, qui génère un véhicule par étape et le fait passer dans la deuxième boucle;
-			\item La deuxième boucle est celle décrite dans l'organigramme \vref{fig.flowPrincipal}, indexée par les pas de temps successifs, où à chaque itération la fonction \lstinline{simulation} augmente la valeur la case correspondante de \lstinline{puissanceReseau} d'une unité de puissance ou pas selon que le véhicule est en charge ou non.
+			\item une première boucle sur la taille de l'échantillon, qui génère un véhicule par étape et le fait passer dans la deuxième boucle ;
+			\item la deuxième boucle est celle décrite dans l'organigramme \vref{fig.flowPrincipal}, indexée par les pas de temps successifs, où à chaque itération la fonction \lstinline{simulation} augmente la valeur la case correspondante de \lstinline{puissanceReseau} d'une unité de puissance ou pas selon que le véhicule est en charge ou non.
 			\end{enumerate}
 			
 			En sortie, on obtient donc un tableau contenant toutes les informations nécessaires au tracé de la courbe de charge imposée par cette flotte au cours du temps.
@@ -186,7 +186,7 @@
 		
 		
 		\clearpage
-		\subsection{Bornes de recharge et \emph{use case}}
+		\subsection{  Bornes de recharge et \emph{use case} } \label{sec.useCases}
 		
 		Nous avons plusieurs possibilités de prédiction en ce qui concerne les infrastructures de recharge. En effet celles-ci peuvent avoir différentes répartitions géographiques sur le territoire (seulement au domicile des utilisateurs ou bien aussi sur leur lieu de travail par exemple).
 		De plus il y a aussi différentes possibilités d'implémentation du système \smartgrid{}. Par exemple il peut ne pas y avoir de \smartgrid{} du tout ou bien il peut y avoir un système de \emph{Vehicle to Grid}.
@@ -217,7 +217,160 @@
 		
 		
 		\subsection{Résultats}
-		2 jours == 10 jours mentionner
+			
+			\begin{figure}[!h]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+					/pgf/number format/.cd,
+					use comma,
+					1000 sep={ },
+					height = 8cm,
+					width = 15cm,
+					axis x line = bottom,
+					axis y line = left,
+				 	xlabel = Heures,
+				 	ylabel = Consommation (MW)
+				 	]
+					\addplot[mark = , smooth, color=blue] table[x=Heures,y=2015-01-21] {fig/courbesRTE.txt};
+					\addlegendentry{21/01/2015};
+					\addplot[mark =, smooth, color=red] table[x=Heures,y=2014-07-17] {fig/courbesRTE.txt};
+					\addlegendentry{17/07/2014}
+					\end{axis}
+				\end{tikzpicture}
+				\caption{Courbe de charge du réseau français un jour d'hiver (en bleu) et un jour d'été (en rouge)}
+			\end{figure}
+			
+			\subsubsection{Cas de référence}
+			
+			Dans l'ensemble de nos modélisations nous avons essayé de partir d'une modélisation de référence et d'en modifier que un ou deux paramètres pour pouvoir comparer aisément les différents résultats obtenus.
+			
+			Voici les paramètres de ce cas de référence :
+			\begin{table}[h!]
+			\centering
+			\begin{tabular}{|c|c|}
+			\hline
+			Nombre de Véhicule ($N$) & 30000 \\
+			\hline
+			\lstinline|deltaT| & \SI{1}{\min} \\
+			\hline
+			Durée de la simulation & 10 jours \\
+			\hline
+			Nombre d'itérations & 10 \\
+			\hline
+			\end{tabular}
+			\end{table}
+			Le nombre d'itérations correspond au nombre de fois ou nous faisons tourner la boucle de simulation avec $N$ véhicules, et la courbe obtenue est la moyenne des résultats des différentes itérations.
+			
+			\subsubsection{Influence de l'état de charge initial}
+				
+				Nous avons tout d'abord étudié l'influence de l'état de charge initial pris en compte dans notre modèle. En effet, il était important de savoir si un choix arbitraire d'état de charge initial influencé grandement ou non nos résultats.
+					
+				Nous avons donc effectué une première série de modélisation avec les paramètres suivants :
+				\begin{table}[h!]
+				\centering
+				
+				\begin{tabular}{|c||c|}
+					\hline
+					& \lstinline|soc| initial\\
+					\hline
+					Cas 1 & 100\% \\
+					\hline
+					Cas 2 & 75\%\\
+					\hline
+					Cas 3 & 50\%\\
+					\hline
+					Cas 4 & 25\%\\
+					\hline
+					Cas 5 & 0\%\\
+					\hline
+				\end{tabular}
+				\end{table}
+				Dans ces modélisations, il n'y a aucun \emph{use case} d'utilisé, la fonction \lstinline|smartGrid| retourne la valeur \lstinline|BRANCHE_EN_CHARGE| si la voiture n'est pas pleinement chargé, \lstinline|BRANCHE_PAS_EN_CHARGE| si non.
+				
+				Les courbes présentées sur la figure \vref{fig.socInitVariable} sont celles obtenues au dixième jour de modélisation.
+				
+				\begin{figure}[!h]
+					\centering
+					\begin{tikzpicture}
+						\begin{axis}[
+						/pgf/number format/.cd,
+						use comma,
+						1000 sep={ },
+						height = 8cm,
+						width = 15cm,
+						axis x line = bottom,
+						axis y line = left,
+						xlabel = Heures,
+						ylabel = Consommation (kW)
+						]
+						\addplot[mark = , smooth, color=blue] file{fig/socInitVariables/cas1-100.csv};
+						\addlegendentry{Cas 1};
+						\addplot[mark = , smooth, color=violet] file{fig/socInitVariables/cas2-075.csv};
+						\addlegendentry{Cas 2};
+						\addplot[mark = , smooth, color=yellow] file{fig/socInitVariables/cas3-050.csv};
+					\addlegendentry{Cas 3};
+						\addplot[mark = , smooth, color=cyan] file{fig/socInitVariables/cas4-025.csv};
+						\addlegendentry{Cas 4};
+						\addplot[mark = , smooth, color=red] file{fig/socInitVariables/cas5-000.csv};
+					\addlegendentry{Cas 5};
+						\end{axis}
+					\end{tikzpicture}
+					\caption{Effet de l'état de charge initial sur la courbe de charge résultat au bout de 10 jours. \label{fig.socInitVariable}}
+				\end{figure}			
+				
+				On constate que quelque soit l'état initial choisi il y a convergence des modélisation au bout d'un temps suffisamment long. Cela nous permet de choisir arbitrairement un état de charge initial de 100 \% pour le reste de nos modélisations sans que cette décision n'impacte sur la généralité de notre étude. 
+		
+				
+				\subsubsection{Influence de la répartition des bornes}
+				
+				Nous avons aussi étudié l'influence de la répartition des bornes sur l'allure de la courbe de charge.
+				
+				Une fois encore nous avons comparés au dixième jour de modélisation différents cas : 
+				\begin{table}[h!]
+				\centering
+				\begin{tabular}{|c||c|c|c|}
+					\hline
+					Nombre de bornes pour 100 véhicules & À la maison & Lieu de travail & Lieu public \\
+					\hline
+					Cas 1 & 96 & 33 & 14 \\
+					\hline
+					Cas 2 & 98 & 66 & 50\\
+					\hline
+					Cas 3 & 99 & 80 & 95\\
+					\hline
+				\end{tabular}
+				\end{table}		
+				
+				Le cas 1 correspond à la réalité pour les détenteurs de véhicules électriques actuels.
+				
+				Les courbes sont présentés en figure \vref{fig.repartitionBornes}. Comme dans le cas précédent, aucune implémentation de \emph{smart grid} n'est mise en place.
+				
+				\begin{figure}[!h]
+					\centering
+					\begin{tikzpicture}
+						\begin{axis}[
+						/pgf/number format/.cd,
+						use comma,
+						1000 sep={ },
+						height = 8cm,
+						width = 15cm,
+						axis x line = bottom,
+						axis y line = left,
+						xlabel = Heures,
+						ylabel = Consommation (kW)
+						]
+						\addplot[mark = , smooth, color=blue] file{fig/repartitionBornes/cas1-963314.csv};
+						\addlegendentry{Cas 1};
+						\addplot[mark = , smooth, color=violet] file{fig/repartitionBornes/cas2-986650.csv};
+						\addlegendentry{Cas 2};
+						\addplot[mark = , smooth, color=yellow] file{fig/repartitionBornes/cas3-998095.csv};
+						\addlegendentry{Cas 3};
+						\end{axis}
+					\end{tikzpicture}
+					\caption{Effet de la répartition des bornes sur la courbe de charge. \label{fig.repartitionBornes}}
+				\end{figure}
+			
 		\subsection{Difficultés rencontrées}
 		
 		
