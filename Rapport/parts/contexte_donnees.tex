@@ -31,15 +31,17 @@ L'électricité est soumise à quatre taxes fixées par les pouvoirs publics : l
 Les fournisseurs rencontrent des difficultés à répondre à la demande des clients pendant certaines périodes : les pics de consommation.
 
 
-\subsubsection{Pic de consommation}
-Une pointe de consommation électrique est la consommation la plus élevée sur un réseau électrique. Elle peut résulter de plusieurs facteurs : temporels (heure de pointe), climatiques (forte chaleur, températures trop basses),~...
+	\subsubsection{Pic de consommation}
+	Une pointe de consommation électrique est la consommation la plus élevée sur un réseau électrique. Elle peut résulter de plusieurs facteurs tels que l'heure de la journée ou la température extérieure.
+	
+	On en distingue trois types majeurs :
+	\begin{itemize}
+		\item les pointes journalières qui se produisent souvent en fin de journée un jour de semaine, lorsque les personnes rentrent du travail; la pointe sera plus accentuée dans les réseaux où le chauffage de l'eau et les appareils électroménagers utilisent l'électricité plutôt que le gaz;
+		\item les pointes saisonnières peuvent survenir en été ou en hiver (cas de la France), mais dans les deux cas, les températures extrêmes influent sur la demande de climatisation ou de chauffage électrique des ménages;
+		\item certaines pointes sont aussi causées par les infrastructures d'utilités publiques telles que l'éclairage public ou le transport ferroviaire.
+	\end{itemize}
 
-On en distingue trois types majeurs :
-\begin{itemize}
-	\item les pointes journalières qui se produisent souvent en fin de journée un jour de semaine, lorsque les personnes rentrent du travail; la pointe sera plus accentuée dans les réseaux où le chauffage de l'eau et les appareils électroménagers utilisent l'électricité plutôt que le gaz;
-	\item les pointes saisonnières peuvent survenir en été ou en hiver (cas de la France), mais dans les deux cas, les températures extrêmes influent sur la demande de climatisation ou de chauffage électrique des ménages;
-	\item certaines pointes sont aussi causées par les infrastructures d'utilités publiques telles que l'éclairage public ou le transport ferroviaire.
-\end{itemize}
+\bigskip
 
 On observe en France que la pointe progresse plus vite que la consommation électrique : elle augmente de \SI{3}{\percent}, alors que, dans le même temps, la consommation électrique connait une hausse de \SI{0.6}{\percent}. Plusieurs raisons en sont à l'origine, notamment la place du chauffage électrique et le développement de nouveaux usages de l'électricité (équipements électroménagers et informatiques, recharges multiples). Il est donc nécessaire d'agir rapidement pour lutter contre ces pics de consommation qui coutent cher et ont un impact environnemental au travers des augmentations d'émission de \ce{CO2}.
 Par exemple, la perte d'un degré de température se traduit en France en 2012 par une augmentation estimée d'électricité de \SI{2300}{\mega\watt} contre \SI{600}{\mega\watt} en Grande-Bretagne.
@@ -71,6 +73,7 @@ L'agrégateur est une prestation complémentaire, un intermédiaire entre le sys
 	\item des collectivités : barrage électrique, château d'eau;
 	\item industriel : stockage de produits intermédiaires (cimenterie).
 \end{itemize}
+\bigskip
 
 Cela nécessite:
 \begin{itemize}
@@ -78,6 +81,7 @@ Cela nécessite:
 	\item de penser des modèles pour prévoir les résultats de son action;
 	\item de recueillir des informations pour anticiper les évolutions du marché.
 \end{itemize}
+\bigskip
 
 Malheureusement tout cela est assez lent à mettre en place pour plusieurs raisons : la loi NOME ne permet pas la mise en place de ces réseaux avant 2016, de plus le consommateur doit avoir la possibilité de revenir en mode \og{}normal\fg{} à tout moment, des études sur le comportement des utilisateurs doivent être faites pour pouvoir choisir les moments où effacer l'électricité ou non.
 
@@ -96,6 +100,7 @@ Nous avons donc cherché des informations sur le comportement des utilisateurs d
 	\item un échange avec \textit{Autolib'} nous a permis d'avoir des informations générales sur ces véhicules qui représentent environ \num{3500} véhicules;
 	\item des données techniques sur les différentes marques principales de véhicules électriques (nombre, consommation, autonomie,~...).
 \end{itemize}
+\bigskip
 
 Ces données nous ont été utiles mais nous ne pouvions pas déterminer à quelles heures les trajets étaient effectués, quelles distances ont été parcourues ou d'autres informations de ce type qui sont cruciales pour pouvoir modéliser la demande en électricité due aux véhicules électriques en fonction de l'heure de la journée. Malheureusement, nous n'avons pas réussi à trouver ces informations pour les véhicules électriques, nous avons donc décidé de considérer que les données des voitures à essence pouvaient être extrapolées aux véhicules électriques. Nous avons ensuite concentré notre étude sur les jours ouvrés et dans ce cas, les principaux trajets de la journée sont ceux entre le domicile et le travail. Nous avons donc trouvé les données suivantes:
 \begin{itemize}
@@ -103,5 +108,6 @@ Ces données nous ont été utiles mais nous ne pouvions pas déterminer à quel
 	\item l'\og{}Enquête auprès des salariés d'Île-de-France sur les transports en commun domicile-travail\fg{} nous a permis d'en savoir plus sur ces trajets ce qui nous a  été très utile pour la modélisation;
 	\item l'\og{}Enquête nationale des transports et des déplacements réalisés en 2008\fg{} qui nous a permis d'avoir accès à la distance moyenne des trajets et à leur durée moyenne.
 \end{itemize}
+\bigskip
 
 Ces données sont suffisamment récentes pour être utilisées lors de notre modélisation.
