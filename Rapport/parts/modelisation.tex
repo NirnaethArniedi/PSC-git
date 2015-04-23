@@ -186,17 +186,38 @@
 		
 		
 		\clearpage
-	\subsection{Use Cases}
+		\subsection{Bornes de recharge et \emph{use case}}
 		
-		 Louis fait toi plaiz'
+		Nous avons plusieurs possibilités de prédiction en ce qui concerne les infrastructures de recharge. En effet celles-ci peuvent avoir différentes répartitions géographiques sur le territoire (seulement au domicile des utilisateurs ou bien aussi sur leur lieu de travail par exemple).
+		De plus il y a aussi différentes possibilités d'implémentation du système \smartgrid{}. Par exemple il peut ne pas y avoir de \smartgrid{} du tout ou bien il peut y avoir un système de \emph{Vehicle to Grid}.
+		Nous allons ainsi définir des \textit{use case} (cas d'utilisations) pour les bornes de recharge. 
+		
+		Il y a trois cas d'utilisations en ce qui concerne la répartition des bornes de recharge :
+		
+		\begin{enumerate}
+			\item Uniquement au domicile des utilisateurs de véhicules électriques ;
+			\item À la fois au domicile mais aussi sur le lieu de travail des particuliers ;
+			\item Présentes partout sur le territoire uniformément, c'est-à-dire au domicile, sur le lieu de  travail et sur chaque place de parking dès que la voiture se gare ailleurs (dans la rue ou sur les parkings de supermarchés par exemple).
+		\end{enumerate}
+		
+		\bigskip
+		
+		On définit aussi différents cas d'utilisation des bornes de recharge en ce qui concerne le \smartgrid{} :
+		
+		\begin{enumerate}
+			\item Pas d'implémentation du \smartgrid{}, on recharge la voiture dès qu'elle est branchée ;
+			\item On ne recharge pas les voitures pendant les pics de consommation, c'est-à-dire entre 18 heures et 21 heures ;
+			\item On implémente le système \emph{Vehicle to Grid}, c'est-à-dire qu'entre 18 heures et 21 heures on ne recharge pas mais en plus les véhicules dont l'état de charge est supérieur à \lstinline{socMin} servent à alimenter le réseau en énergie. On considère que c'est l'utilisateur qui rentre ce \lstinline{socMin} dans la borne.  Après 21 heures la recharge normale des véhicules peut reprendre. Nous avons effectué l'hypothèse que ces véhicules en \emph{Vehicle to Grid} fournissent une puissance de \SI{2}{\kilo\watt}. En effet, la rétrocession de l'énergie de la batterie n'atteint pas, dans les technologies actuelles, 100 \%.
+		\end{enumerate}
+		
+		\bigskip
+		
+		Tous ces cas d'utilisations sont volontairement larges et sans nuances afin d'avoir une large fourchette de résultats.
+		Nous aurons donc au total neuf cas d'études à implémenter, donnant chacune une courbe de consommation/restitution différente. 
 		
 		
-	\subsection{Résultats}
-	2 jours == 10 jours mentionner
-	\subsection{Difficultés rencontrées}
-	
-\section*{Conclusion}
-
-\section*{Bibliographie...}
+		\subsection{Résultats}
+		2 jours == 10 jours mentionner
+		\subsection{Difficultés rencontrées}
 		
 		

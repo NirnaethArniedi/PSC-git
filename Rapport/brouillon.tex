@@ -81,11 +81,15 @@ expproduct = \cdot
 \begin{document}
 
 \maketitle
-% % %page blanche après le titre.  
-\clearpage
-	\mbox{}
-	\thispagestyle{empty}\addtocounter{page}{-1}
-\clearpage
+
+\newpage
+\renewcommand{\thepage}{}
+\thispagestyle{empty}
+\null
+\newpage
+
+\renewcommand{\thepage}{\arabic{page}}
+\setcounter{page}{1}
 
 \include{parts/introduction}
 
@@ -93,7 +97,11 @@ expproduct = \cdot
 
 \include{parts/diffusion}
 
-%\include{parts/modelisation}
-bite 
+\include{parts/modelisation}
+
+\section*{Conclusion}
+
+\section*{Bibliographie...}
+
 
 \end{document}
