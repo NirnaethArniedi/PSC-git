@@ -1,4 +1,4 @@
-\documentclass[10pt]{article}
+\documentclass[12pt]{article}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -46,9 +46,14 @@ decimalsymbol = comma,
 expproduct = \cdot
 }
 
-\usepackage[coverpage,fancysections]{polytechnique}
+\usepackage[coverpage,fancysections,twoside]{polytechnique-psc}
 
-\usepackage[pdftex]{hyperref}
+
+
+
+
+
+\usepackage{hyperref}
 \hypersetup{%
  pdftitle = {PSC - Rapport final},%
  pdfsubject = {},%
@@ -67,15 +72,20 @@ expproduct = \cdot
 \newcommand{\D}{\mathrm{d}}
 \renewcommand{\thefootnote}{(\roman{footnote})}
 
-\titleformat{\chapter}[hang]{\Huge\bfseries\sffamily}{\LARGE}{0em}{}[]
+%\titleformat{\chapter}[hang]{\Huge\bfseries\sffamily}{\LARGE}{0em}{}[]
 
-\title{Il dit qu'il voit pas le rapport}
+\title{Il dit qu'il voit pas le rapport, tagada tagda voila les dalton}
 \subtitle{Sexuel le rapport, sexuel.}
-\author{ Vincent \textsc{Dufour-Décieux} \\ Odilon \textsc{Formery} \\ Ahmed \textsc{Krarti} \\ Louis \textsc{Legrand} \\ Augustin \textsc{Lenormand} \\   Camille \textsc{Masset} }
+\author{ Vincent \textsc{Dufour-Décieux} \\ Odilon \textsc{Formery} \\ Ahmed \textsc{Krarti} \\ Louis \textsc{Legrand} \\ Augustin \textsc{Lenormand} \\ Camille \textsc{Masset} }
 
 \begin{document}
 
 \maketitle
+% % %page blanche après le titre.  
+\clearpage
+	\mbox{}
+	\thispagestyle{empty}\addtocounter{page}{-1}
+\clearpage
 
 \include{parts/introduction}
 
@@ -83,6 +93,6 @@ expproduct = \cdot
 
 \include{parts/diffusion}
 
-\include{parts/modelisation}
+%\include{parts/modelisation}
 
 \end{document}
