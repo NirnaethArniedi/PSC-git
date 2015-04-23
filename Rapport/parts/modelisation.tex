@@ -77,18 +77,18 @@
 		\begin{itemize}
 			\item Les destinations des véhicules sont choisies \emph{a priori}. 
 				\begin{description}
-					\item[Cas des VEP] On fait une distinction suivant l'horaire de départ:
+					\item[Cas des VEP.] On fait une distinction suivant l'horaire de départ:
 					\begin{itemize}
     						\item de 07~h à 11~h, tous les trajets d'un particulier le conduisent sur son lieu de travail, et dans le cas où il est déjà sur son lieu de travail, un trajet l'amène dans un lieu public (déplacement professionnel);
     						\item de 11~h à 14~h, un trajet depuis un lieu public (où il a pris son repas par exemple) l'amène sur son lieu de travail, et un trajet depuis sa maison ou son lieu de travail l'amène aléatoirement à l'un des deux autres lieux possibles (trajet travail-maison pour le repas par exemple, ou maison-lieu extérieur pour aller chercher les enfants à l'école);
     						\item de 00~h à 07~h et de 14~h à 24~h, un trajet depuis la maison l'amène sur un lieu public (école des enfants, sortie le soir, courses,~...), et tout autre trajet a pour direction la maison.
     					\end{itemize}
-					\item[Cas des VEE] On effectue également une distinction horaire, mais plus simple (un VEE n'a pas de \og{}maison\fg{}):
+					\item[Cas des VEE.] On effectue également une distinction horaire, mais plus simple (un VEE n'a pas de \og{}maison\fg{}):
     					\begin{itemize}
     						\item s'il est plus de 18~h, le véhicule rentre sur son lieu de travail, qui dans le cas d'un véhicule d'entreprise est sa base de départ;
     						\item sinon tous les déplacements sont des déplacements professionnels qui vont vers un lieu public.
     					\end{itemize}
-					\item[Cas des VAP] le trajet est aléatoirement vers un lieu public, ou un lieu de travail.
+					\item[Cas des VAP.] Le trajet est aléatoirement vers un lieu public, ou un lieu de travail.
 				\end{description}
 			Ces destinations sont déterminées lors de l'initialisation d'un véhicule, et un parcours de ce tableau vérifie que chaque véhicule accède à une borne au cours de ses trajets, quitte à recommencer la création de la liste des destinations du véhicule si celui-ci ne trouve pas de borne sur son trajet.
 			\item Nous avons imposés certaines contraintes sur la répartition des bornes des VEE et VAP :
