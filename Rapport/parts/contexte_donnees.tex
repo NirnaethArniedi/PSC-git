@@ -5,9 +5,9 @@
 Dans cette partie nous étudierons les pics de consommations et les solutions proposées par GDF-Suez pour pouvoir les effacer. Afin de mieux comprendre ces pics nous commencerons par les replacer dans le contexte plus global de la distribution de l'électricité en France. Nous détaillerons ensuite les origines et manifestations des pics de consommations. Enfin nous expliquerons les concepts de \smartgrid{} et d'agrégateurs de flexibilité, qui sont respectivement un nouveau type de réseau électrique et un nouvel acteur du marché de l'électricité.
 
 
-\subsubsection{Distribution de l'électricité}
+\subsubsection{Production et distribution de l'électricité}
 
-Le prix de l'électricité, celui que les français peuvent lire sur leur facture, est composé de quatre parties (chiffres moyens en 2013) :
+Le prix de l'électricité, celui que les français peuvent lire sur leur facture, est composé de quatre parties (chiffres moyens en 2013) \cite{coutElec}:
 \begin{itemize}
 	\item la production (\SI{31}{\percent});
 	\item l'acheminement par le gestionnaire de réseau (\SI{30}{\percent});
@@ -44,7 +44,7 @@ Les fournisseurs rencontrent des difficultés à répondre à la demande des cli
 \bigskip
 
 On observe en France que la pointe progresse plus vite que la consommation électrique : elle augmente de \SI{3}{\percent}, alors que, dans le même temps, la consommation électrique connait une hausse de \SI{0.6}{\percent}. Plusieurs raisons en sont à l'origine, notamment la place du chauffage électrique et le développement de nouveaux usages de l'électricité (équipements électroménagers et informatiques, recharges multiples). Il est donc nécessaire d'agir rapidement pour lutter contre ces pics de consommation qui coutent cher et ont un impact environnemental au travers des augmentations d'émission de \ce{CO2}.
-Par exemple, la perte d'un degré de température se traduit en France en 2012 par une augmentation estimée d'électricité de \SI{2300}{\mega\watt} contre \SI{600}{\mega\watt} en Grande-Bretagne.
+Par exemple, la perte d'un degré de température se traduit en France en 2012 par une augmentation estimée d'électricité de \SI{2300}{\mega\watt} contre \SI{600}{\mega\watt} en Grande-Bretagne \cite{picFrance}.
 
 Quelles sont les solutions pour gérer ces pics ? Plusieurs moyens sont mis en \oe{}uvre par les gestionnaires de réseau.
 La solution la plus évidente et la plus ancienne consistait en l'augmentation de la capacité de production par le biais de construction de nouvelles infrastructures de production, de transport et de distribution. Mais cette solution a très vite atteint ses limites d'une part car elle présente des risques environnementaux (émission de \ce{CO2}) mais aussi des risques de \emph{blackout} dus à la surcharge d'alimentation.
@@ -53,20 +53,19 @@ Une autre solution consiste à baisser le niveau de la consommation en commandan
 
 \subsubsection{Les \smartgrids{}}
 
-L'effacement résidentiel consiste à réduire temporairement la consommation d'électricité d'un grand nombre de petits sites, en particulier de logements, de façon à diminuer la demande. Il s'agit par exemple d'interrompre brièvement, mais de façon synchronisée, l'alimentation de radiateurs ou climatiseurs situés dans des logements pour, au total, réduire la consommation d'électricité d'une région ou du pays.
+L'effacement résidentiel consiste à réduire temporairement la consommation d'électricité d'un grand nombre de petits sites, en particulier de logements, de façon à diminuer la demande \cite{effResidentiel}. Il s'agit par exemple d'interrompre brièvement, mais de façon synchronisée, l'alimentation de radiateurs ou climatiseurs situés dans des logements pour, au total, réduire la consommation d'électricité d'une région ou du pays.
 
-Cela se matérialise par la mise en place d'un boitier (Linky) qui s'installe sur le tableau électrique et qui permet de mesurer et de commander certains usages en temps réel (par exemple, chauffe-eau et radiateurs). Un système d'information complète le tout en recueillant les données et générant les ordres de modulation. Le pilotage est effectué à distance par un opérateur et ne requiert aucune action directe des utilisateurs qui souscrivent à ce service. Un consommateur qui dispose d'une offre d'effacement se verra ainsi rémunéré pour le service qu'il apporte au système électrique
+Les utilisateurs qui souscrivent à ce type de service se verront installé un boîtier dans le tableau électrique de leurs maisons. Le principal avantage de ce boîtier est qu’il permet de collecter les données des utilisateurs mais aussi de commander à distance certaines tâches (arrêt du chauffage, de la climatisation).Toutes ces tâches sont réalisées par un automate programmable qui concilie au mieux entre les exigences du gestionnaire du réseau et celles de l'utilisateur.
 
-Avec le développement des nouvelles technologies, les gestionnaires du réseau (EDF, RTE, ERDF) ont mis à profit ces TICS pour moderniser leurs réseaux de distribution. Ces réseaux intelligents, les \smartgrids{}, permettent de déconnecter des appareils électriques non primordiaux lors de fortes demandes en électricité. Ce nouveau réseau sert avant tout à limiter les risques d'apparition de pointes importantes de consommation électrique et à maintenir une fourniture d'électricité efficace, durable, économique et sécurisée.
+Avec le développement des nouvelles technologies de l'information et de la communication (TIC), les distributeurs (EDF, RTE, ERDF) ont pu moderniser leurs réseaux. Ces réseaux intelligents, autrement appelés \smartgrids{} permettent de tenir compte de la variabilité des sources de production d'électricité renouvelable, (à cause de leur dépendance vis-à-vis de la météo notamment), ainsi que de l'augmentation de la production dite décentralisée (parc éolien raccordé au réseau de distribution ou consommateur final disposant de panneaux photovoltaïques sur le toit de son habitat qui devient producteur d'énergie) et les ambitions de réduction des consommations d'énergie complexifient la gestion de l'équilibre entre production et consommation. En favorisant l'intégration des productions d'électricité à partir d'énergies de sources renouvelables, les \smartgrids{} ont un impact fort sur la réduction d'émission de \ce{CO2}.
 
-Ces \smartgrids{} permettent de tenir compte de la variabilité des sources de production d'électricité renouvelable, c'est-à-dire leur fluctuation en fonction des contraintes météorologiques (ensoleillement, vent,~...), ainsi que l'augmentation de la production dite décentralisée (parc éolien raccordé au réseau de distribution ou consommateur final disposant de panneaux photovoltaïques sur le toit de son habitat qui devient producteur d'énergie par exemple) et les ambitions de réduction des consommations d'énergie complexifient la gestion de l'équilibre entre production et consommation. En favorisant l'intégration des productions d'électricité à partir d'énergies de sources renouvelables, les \smartgrids{} ont un impact fort sur la réduction d'émission de \ce{CO2}.
 
 Les effets de ces \smartgrids{} peuvent être développés grâce à un agrégateur de flexibilité que nous allons maintenant présenter.
 
 
 \subsubsection{L'agrégateur de flexibilité}
 
-L'agrégateur est une prestation complémentaire, un intermédiaire entre le système électrique et ses utilisateurs. Il crée de la valeur pour ses clients en revendant de la flexibilité au système électrique, ce que l'on qualifie parfois de \og{}centrale électrique virtuelle\fg{}. Pour que tout cela fonctionne, il faut stocker de l'énergie pendant les périodes creuses pour pouvoir faire face aux pics. Ce stockage se fait au niveau:
+L'agrégateur \cite{agregateur} est une prestation complémentaire, un intermédiaire entre le système électrique et ses utilisateurs. Il crée de la valeur pour ses clients en revendant de la flexibilité au système électrique, ce que l'on qualifie parfois de \og{}centrale électrique virtuelle\fg{}. Pour que tout cela fonctionne, il faut stocker de l'énergie pendant les périodes creuses pour pouvoir faire face aux pics. Ce stockage se fait au niveau:
 \begin{itemize}
 	\item individuel : grâce aux batteries des VE, aux ballons d'eau chaude;
 	\item des bâtiments : inertie thermique, batterie chaude ou froide;
@@ -83,11 +82,11 @@ Cela nécessite:
 \end{itemize}
 \bigskip
 
-Malheureusement tout cela est assez lent à mettre en place pour plusieurs raisons : la loi NOME ne permet pas la mise en place de ces réseaux avant 2016, de plus le consommateur doit avoir la possibilité de revenir en mode \og{}normal\fg{} à tout moment, des études sur le comportement des utilisateurs doivent être faites pour pouvoir choisir les moments où effacer l'électricité ou non.
+Malheureusement tout cela est assez lent à mettre en place pour plusieurs raisons : la loi NOME ne permet pas la mise en place de ces réseaux avant 2016 \cite{loiNome}, de plus le consommateur doit avoir la possibilité de revenir en mode \og{}normal\fg{} à tout moment, des études sur le comportement des utilisateurs doivent être faites pour pouvoir choisir les moments où effacer l'électricité ou non.
 
 \subsubsection{Notre PSC et son inscription dans ce contexte}
 
-Des solutions au problème des pics de consommation ont été apportées à travers les \smartgrids{} et l'agrégateur de flexibilité, cependant ces deux systèmes ont besoin d'informations sur la consommation d'électricité des clients pour soit effacer la consommation à travers les \smartgrids{}, soit pour savoir quand l'agrégateur devra redistribuer l'énergie accumulée. Les fournisseurs, tels que GDF Suez, peuvent obtenir cela pour les habitudes actuelles car la consommation d'électricité vient principalement de l'électroménager, de la lumière et du chauffage. Mais un changement commence à s'opérer dans le quotidien des individus et il s'agit de la voiture électrique. En effet, celle-ci va amener des consommations supplémentaires d'électricité à travers sa recharge et prévoir comment cela va influer sur les pics de consommation mérite une étude poussée. C'est là qu'intervient notre PSC : nous avons étudié le comportement des utilisateurs de véhicules électriques pour savoir quand ils rechargeront leur véhicule et quel effet cela aura sur le réseau. GDF Suez souhaite aussi gérer intelligemment l'augmentation des pics de consommation dus aux véhicules électriques en apportant une nouvelle idée : lorsque le véhicule sera branché, il sera possible de ne pas le recharger pour repousser l'utilisation d'énergie à un moment où le réseau sera moins soumis à la demande ou même de fournir de l'énergie au réseau pour que l'effet bénéfique soit amplifié. Nous tenterons de prévoir le nombre de personnes intéressés par cette offre et comment elle influera sur le réseau au cours de notre étude.
+Des solutions au problème des pics de consommation ont été apportées à travers les \smartgrids{} et l'agrégateur de flexibilité, cependant ces deux systèmes ont besoin d'informations sur la consommation d'électricité des clients pour soit effacer la consommation à travers les \smartgrids{}, soit pour savoir quand l'agrégateur devra redistribuer l'énergie accumulée. Les fournisseurs, tels que GDF Suez, peuvent obtenir cela pour les habitudes actuelles car la consommation d'électricité vient principalement de l'électroménager, de la lumière et du chauffage. Mais un changement commence à s'opérer dans le quotidien des individus et il s'agit de la voiture électrique. En effet, celle-ci va amener des consommations supplémentaires d'électricité à travers sa recharge et prévoir comment cela va influer sur les pics de consommation mérite une étude poussée. C'est là qu'intervient notre PSC : nous avons étudié le comportement des utilisateurs de véhicules électriques pour savoir quand ils rechargeront leur véhicule et quel effet cela aura sur le réseau. GDF Suez souhaite aussi gérer intelligemment l'augmentation des pics de consommation due aux véhicules électriques en apportant une nouvelle idée : lorsque le véhicule sera branché, il sera possible de ne pas le recharger pour repousser l'utilisation d'énergie à un moment où le réseau sera moins soumis à la demande ou même de fournir de l'énergie au réseau pour que l'effet bénéfique soit amplifié. Nous tenterons de prévoir le nombre de personnes intéressés par cette offre et comment elle influera sur le réseau au cours de notre étude.
 
 
 
@@ -95,18 +94,18 @@ Des solutions au problème des pics de consommation ont été apportées à trav
 
 Nous avons donc cherché des informations sur le comportement des utilisateurs de véhicules électriques que nous analyserons ensuite. Malheureusement, puisque leur nombre est aujourd'hui peu conséquent (environ \num{30000}) il est difficile de trouver des études sur ce sujet. Nous avons cependant réussi à en réunir quelques-unes:
 \begin{itemize}
-	\item une étude du Club Alsace Voiture \'Electrique sur les habitudes de ces utilisateurs. L'enquête nous donne des informations (fréquence des recharges des voitures, lieu d'utilisation des bornes,~...) et on peut la considérer comme représentative car elle a été faite auprès de 500 utilisateurs ce qui représente environ \SI{3}{\percent} des utilisateurs totaux;
-	\item un échange avec La Poste nous a permis de recueillir des informations sur l'utilisation de leur flotte de \num{5000} véhicules électriques;
-	\item un échange avec \textit{Autolib'} nous a permis d'avoir des informations générales sur ces véhicules qui représentent environ \num{3500} véhicules;
+	\item une étude du Club Alsace Voiture \'Electrique \cite{clubalsace} sur les habitudes de ces utilisateurs. L'enquête nous donne des informations (fréquence des recharges des voitures, lieu d'utilisation des bornes,~...) réalisées auprès de 500 utilisateurs ;
+	\item un échange avec La Poste nous a permis de recueillir des informations sur l'utilisation de leur flotte de \num{5000} véhicules électriques ;
+	\item un échange avec \textit{Autolib'} nous a permis d'avoir des informations générales sur ces véhicules qui représentent environ \num{3500} véhicules ;
 	\item des données techniques sur les différentes marques principales de véhicules électriques (nombre, consommation, autonomie,~...).
 \end{itemize}
 \bigskip
 
 Ces données nous ont été utiles mais nous ne pouvions pas déterminer à quelles heures les trajets étaient effectués, quelles distances ont été parcourues ou d'autres informations de ce type qui sont cruciales pour pouvoir modéliser la demande en électricité due aux véhicules électriques en fonction de l'heure de la journée. Malheureusement, nous n'avons pas réussi à trouver ces informations pour les véhicules électriques, nous avons donc décidé de considérer que les données des voitures à essence pouvaient être extrapolées aux véhicules électriques. Nous avons ensuite concentré notre étude sur les jours ouvrés et dans ce cas, les principaux trajets de la journée sont ceux entre le domicile et le travail. Nous avons donc trouvé les données suivantes:
 \begin{itemize}
-	\item l'enquête \og{}La circulation routière en Île-de-France en 2010\fg{} réalisée par l'OMNIL qui possède une partie intéressante dans laquelle on voit le trafic routier en Île-de-France en fonction de l'heure de la journée. Nous avons trouvé de plus l'exploitation de cette enquête qui permet d'avoir accès aux informations de manière plus synthétique;
-	\item l'\og{}Enquête auprès des salariés d'Île-de-France sur les transports en commun domicile-travail\fg{} nous a permis d'en savoir plus sur ces trajets ce qui nous a  été très utile pour la modélisation;
-	\item l'\og{}Enquête nationale des transports et des déplacements réalisés en 2008\fg{} qui nous a permis d'avoir accès à la distance moyenne des trajets et à leur durée moyenne.
+	\item l'enquête \og{}La circulation routière en Île-de-France en 2010\fg{} \cite{OMNIL} réalisée par l'OMNIL qui possède une partie intéressante dans laquelle on voit le trafic routier en Île-de-France en fonction de l'heure de la journée. Nous avons trouvé de plus l'exploitation de cette enquête qui permet d'avoir accès aux informations de manière plus synthétique;
+	\item l'\og{}Enquête auprès des salariés d'Île-de-France sur les transports en commun domicile-travail\fg{} \cite{ORSTIF} nous a permis d'en savoir plus sur ces trajets ce qui nous a  été très utile pour la modélisation;
+	\item l'\og{}Enquête nationale des transports et des déplacements réalisés en 2008\fg{} \cite{enqueteGouv} qui nous a permis d'avoir accès à la distance moyenne des trajets et à leur durée moyenne.
 \end{itemize}
 \bigskip
 
