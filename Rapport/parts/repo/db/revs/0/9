@@ -1,0 +1,50 @@
+id: 1-4.0.r9/0
+type: file
+pred: 1-4.0.r8/45
+count: 5
+text: 7 0 162 1699 25f1d305a1d7e53f9f3c9dbdea79ae0f 74e1c9c5e9dfc22bf59732077339ae1962b8ad61 8-8/_2
+cpath: /trunk/tableauAnnexe.tex
+copyroot: 0 /
+
+PLAIN
+K 17
+tableauAnnexe.tex
+V 15
+file 1-4.0.r9/0
+END
+ENDREP
+id: 0-1.0.r9/261
+type: dir
+pred: 0-1.0.r8/308
+count: 6
+text: 9 200 48 0 c290b262f9b8de71914dbb1eab319a10
+cpath: /trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 14
+dir 0-2.0.r2/0
+K 4
+tags
+V 14
+dir 0-3.0.r3/0
+K 5
+trunk
+V 16
+dir 0-1.0.r9/261
+END
+ENDREP
+id: 0.0.r9/506
+type: dir
+pred: 0.0.r8/553
+count: 9
+text: 9 395 98 0 49a7904dd113388e83556100db6ba793
+cpath: /
+copyroot: 0 /
+
+1-4.0.t8-8 modify-file true false /trunk/tableauAnnexe.tex
+
+
+506 631
