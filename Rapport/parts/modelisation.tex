@@ -157,25 +157,20 @@
 			
 			La première, \lstinline{willToCharge}, est un booléen qui décrit de manière sommaire le comportement de l'utilisateur. On fait l'hypothèse d'un utilisateur rationnel qui ne met son véhicule en charge que lorsque l'autonomie de celui-ci ne lui permet pas de faire les trajets à venir. On simule ainsi le comportement réel des utilisateurs qui, d'après nos données, ne chargent pas leur véhicule de manière systématique, mais en moyenne tous les trois jours.
 			
-			La deuxième est la fonction 
-			\begin{lstlisting}
-    int Vehicule::smartGrid(int temps, int deltaT, int usecase)
-            \end{lstlisting}
-            Cette fonction est définie pour prendre en compte tous les aspects de \smartgrid{}, \emph{Vehicle to Grid}, effacement de charge, etc. C'est dans cette fonction que sont implémentés les différents cas possibles (\emph{use cases}) de monitoring de la charge d'un véhicule. Les \emph{use cases} que nous avons utilisés, et leur implémentation, sont décrits dans la paragraphe~\vref{sec.useCases}. 
+			La deuxième est la fonction \lstinline{int smartGrid(Vehicule* v)}. Cette fonction est définie pour prendre en compte tous les aspects de \smartgrid{}, \emph{Vehicle to Grid}, effacement de charge, etc. C'est dans cette fonction que seront implémentés les différents cas possibles (\emph{use cases}) de monitoring de la charge d'un véhicule. Les \emph{use cases} que nous avons utilisés, et leur implémentation, sont décrits dans la paragraphe~\vref{sec.useCases}. 
 			
-			D'un point de vue technique, cette fonction retourne un entier qui correspond à un état de charge (\lstinline{BRANCHE_EN_CHARGE} ou \lstinline{BRANCHE_PAS_EN_CHARGE}) selon l'état du véhicule et la méthode d'effacement utilisée, et lève un marqueur qui indique à la suite de la fonction \lstinline|simulation| si le véhicule courant fait du \emph{Vehicle2Grid}. Cette méthode sera le plus souvent imposée par le fournisseur d’électricité dans la réalité.
+			D'un point de vue pratique, cette fonction prend pour argument le véhicule qui est actuellement dans la boucle et retourne un entier qui correspond à un état de charge (\lstinline{BRANCHE_EN_CHARGE} ou \lstinline{BRANCHE_PAS_EN_CHARGE}) selon l'état du véhicule et la méthode d'effacement utilisée. Cette méthode sera le plus souvent imposée par le fournisseur d’électricité dans la réalité.
 			
 			\bigskip
 			
 			Lors de l'appel de la fonction \lstinline{main}, la fonction principale du programme, celle-ci prend différents arguments :
 			\begin{itemize}
-			\item la longueur du pas de temps, $\delta t$ (variable \lstinline{deltaT}), en minutes;
+			\item la longueur du pas de temps, \lstinline{deltaT}, en minutes;
 			\item le nombre $D$ de jours correspondant à la durée de la simulation;
-			\item le nombre $N$ de véhicules à générer pour la simulation;
-			\item le nombre $I$ d'itérations de du programme (on effectue plusieurs fois la même simulation et on moyenne la puissance obtenue).
+			\item le nombre $N$ de véhicules à générer pour la simulation.
 			\end{itemize}
 			
-			Le tableau \lstinline{puissanceReseau}, de taille $D \times 1440 / \delta t$ et indexé par les pas de temps de la simulation, est ensuite initialisé. Chaque case contiendra la puissance requise par l'ensemble de la flotte modélisée pour se recharger à l'instant correspondant.
+			Le tableau \lstinline{puissanceReseau}, de taille $D \times 1440$ et indexé par les pas de temps de la simulation, est ensuite initialisé. Chaque case contiendra la puissance requise par l'ensemble de la flotte modélisée pour se recharger à l'instant correspondant.
 			
 			Ensuite la fonction est basiquement une double boucle :
 			\begin{enumerate}
@@ -197,26 +192,29 @@
 		De plus il y a aussi différentes possibilités d'implémentation du système \smartgrid{}. Par exemple il peut ne pas y avoir de \smartgrid{} du tout ou bien il peut y avoir un système de \emph{Vehicle to Grid}.
 		Nous allons ainsi définir des \textit{use case} (cas d'utilisations) pour les bornes de recharge. 
 		
-		Nous avons retenu trois scénarios en ce qui concerne la répartition des bornes de recharge :
+		Il y a trois cas d'utilisations en ce qui concerne la répartition des bornes de recharge :
+		
 		\begin{enumerate}
-			\item dans la quasi-totalité des cas (\SI{96}{\percent}), une borne au domicile, \SI{33}{\percent} des véhicules possèdent une borne au travail et \SI{14}{\percent} fréquentent des lieux publics où se trouve une borne; cette répartition correspond à la situation actuelle (données statistiques);
-			\item les domiciles sont toujours équipés, les entreprises font des efforts et la voie publique s'équipent sur la moitié du territoire;
-			\item le véhicule électrique s'est démocratisé : les domiciles sont équipés d'une borne, la majorité des entreprises en proposent à leurs employés et on en trouve sur \SI{90}{\percent} du territoire public.
+			\item Uniquement au domicile des utilisateurs de véhicules électriques ;
+			\item À la fois au domicile mais aussi sur le lieu de travail des particuliers ;
+			\item Présentes partout sur le territoire uniformément, c'est-à-dire au domicile, sur le lieu de  travail et sur chaque place de parking dès que la voiture se gare ailleurs (dans la rue ou sur les parkings de supermarchés par exemple).
 		\end{enumerate}
 		
 		\bigskip
 		
-		On définit aussi différents cas d'utilisation des bornes de recharge en ce qui concerne le \smartgrid{}:
+		On définit aussi différents cas d'utilisation des bornes de recharge en ce qui concerne le \smartgrid{} :
+		
 		\begin{enumerate}
-			\item pas d'implémentation du \smartgrid{}, on recharge la voiture dès qu'elle est branchée, jusqu'à ce que la batterie soit à sa charge maximale;
-			\item on ne recharge pas les voitures pendant les pics de consommation, c'est-à-dire entre 18 heures et 21 heures;
-			\item on implémente le système \emph{Vehicle to Grid}, c'est-à-dire qu'entre 18 heures et 21 heures on ne recharge pas mais en plus les véhicules dont l'état de charge est supérieur à \lstinline{socMin} servent à alimenter le réseau en énergie. On considère que c'est l'utilisateur qui rentre ce \lstinline{socMin} dans la borne.  Après 21 heures la recharge normale des véhicules peut reprendre. Nous avons effectué l'hypothèse que ces véhicules en \emph{Vehicle to Grid} fournissent une puissance de \SI{2}{\kilo\watt}. En effet, la rétrocession de l'énergie de la batterie n'atteint pas, avec les technologies actuelles, \SI{100}{\percent}.
+			\item Pas d'implémentation du \smartgrid{}, on recharge la voiture dès qu'elle est branchée ;
+			\item On ne recharge pas les voitures pendant les pics de consommation, c'est-à-dire entre 18 heures et 21 heures ;
+			\item On implémente le système \emph{Vehicle to Grid}, c'est-à-dire qu'entre 18 heures et 21 heures on ne recharge pas mais en plus les véhicules dont l'état de charge est supérieur à \lstinline{socMin} servent à alimenter le réseau en énergie. On considère que c'est l'utilisateur qui rentre ce \lstinline{socMin} dans la borne.  Après 21 heures la recharge normale des véhicules peut reprendre. Nous avons effectué l'hypothèse que ces véhicules en \emph{Vehicle to Grid} fournissent une puissance de \SI{2}{\kilo\watt}. En effet, la rétrocession de l'énergie de la batterie n'atteint pas, dans les technologies actuelles, 100 \%.
 		\end{enumerate}
-		Notons que tous les usagers de véhicules électriques n'acceptent pas forcément de participer au \smartgrid{} ou encore au \emph{Vehicle to Grid}. On a donc fait l'hypothèse que \SI{75}{\percent} des utilisateurs accepteraient de ne pas recharger leur véhicule durant le pic de consommation et que \SI{66}{\percent} de ces utilisateurs accepteraient de rétrocéder de l'énergie au réseau durant cette période.
 		
 		\bigskip
 		
 		Tous ces cas d'utilisations sont volontairement larges et sans nuances afin d'avoir une large fourchette de résultats.
+		Nous aurons donc au total neuf cas d'études à implémenter, donnant chacune une courbe de consommation/restitution différente. 
+		
 		
 		\subsection{Résultats}
 			
@@ -252,13 +250,13 @@
 			\centering
 			\begin{tabular}{|c|c|}
 			\hline
-			Nombre de Véhicule ($N$) & 163000 \\
+			Nombre de Véhicule ($N$) & 30000 \\
 			\hline
-			\lstinline|deltaT| & \SI{2}{\min} \\
+			\lstinline|deltaT| & \SI{1}{\min} \\
 			\hline
-			Durée de la simulation & 5 jours \\
+			Durée de la simulation & 10 jours \\
 			\hline
-			Nombre d'itérations & 4 \\
+			Nombre d'itérations & 10 \\
 			\hline
 			\end{tabular}
 			\end{table}
@@ -290,7 +288,7 @@
 				\end{table}
 				Dans ces modélisations, il n'y a aucun \emph{use case} d'utilisé, la fonction \lstinline|smartGrid| retourne la valeur \lstinline|BRANCHE_EN_CHARGE| si la voiture n'est pas pleinement chargé, \lstinline|BRANCHE_PAS_EN_CHARGE| si non.
 				
-				Les courbes présentées sur la figure \vref{fig.socInitVariable} sont celles obtenues au cinquième jour de modélisation.
+				Les courbes présentées sur la figure \vref{fig.socInitVariable} sont celles obtenues au dixième jour de modélisation.
 				
 				\begin{figure}[!h]
 					\centering
@@ -318,17 +316,17 @@
 					\addlegendentry{Cas 5};
 						\end{axis}
 					\end{tikzpicture}
-					\caption{Effet de l'état de charge initial sur la courbe de charge résultat au bout de 5 jours. \label{fig.socInitVariable}}
+					\caption{Effet de l'état de charge initial sur la courbe de charge résultat au bout de 10 jours. \label{fig.socInitVariable}}
 				\end{figure}			
 				
-				On constate que quelque soit l'état initial choisi il y a convergence des modélisation au bout d'un temps suffisamment long. Cela nous permet de choisir arbitrairement un état de charge initial de \SI{100}{\percent} pour le reste de nos modélisations sans que cette décision n'impacte la généralité de notre étude. 
+				On constate que quelque soit l'état initial choisi il y a convergence des modélisation au bout d'un temps suffisamment long. Cela nous permet de choisir arbitrairement un état de charge initial de 100 \% pour le reste de nos modélisations sans que cette décision n'impacte sur la généralité de notre étude. 
 		
 				
 				\subsubsection{Influence de la répartition des bornes}
 				
 				Nous avons aussi étudié l'influence de la répartition des bornes sur l'allure de la courbe de charge.
 				
-				Une fois encore nous avons comparés au cinquième jour de modélisation différents cas : 
+				Une fois encore nous avons comparés au dixième jour de modélisation différents cas : 
 				\begin{table}[h!]
 				\centering
 				\begin{tabular}{|c||c|c|c|}
@@ -339,14 +337,14 @@
 					\hline
 					Cas 2 & 98 & 66 & 50\\
 					\hline
-					Cas 3 & 99 & 80 & 90\\
+					Cas 3 & 99 & 80 & 95\\
 					\hline
 				\end{tabular}
 				\end{table}		
 				
-				Le cas 1 correspond à la situation actuelle pour les détenteurs de véhicules électriques actuels.
+				Le cas 1 correspond à la réalité pour les détenteurs de véhicules électriques actuels.
 				
-				Les courbes sont présentés en figure \vref{fig.repartitionBornes}. Comme dans le cas précédent, aucune implémentation de \smartgrid{} n'est mise en place.
+				Les courbes sont présentés en figure \vref{fig.repartitionBornes}. Comme dans le cas précédent, aucune implémentation de \emph{smart grid} n'est mise en place.
 				
 				\begin{figure}[!h]
 					\centering
@@ -372,6 +370,50 @@
 					\end{tikzpicture}
 					\caption{Effet de la répartition des bornes sur la courbe de charge. \label{fig.repartitionBornes}}
 				\end{figure}
+				
+				
+				
+				\subsubsection{Influence de la mise en place des systèmes \emph{Smart Grid} et \emph{Vehicle to Grid}}
+				
+				Ici, nous étudions le profil de la courbe de charge lorsque nous implémentons le \emph{Smart Grid} et le \emph{Vehicle to Grid}.
+				
+				Le cas 1 correspond à notre étude de référence, dans laquelle une flotte de 30000 véhicules est observée sur une durée de 10 jours.
+				
+				Le cas 2 est la mise en place du \emph{Smart Grid} : on considère que 75 \% des véhicules électriques sont concernés par ce procédé, c'est-à-dire qu'ils acceptent de ne pas se recharger entre 18h et 18h $+\ H$ où $H$ est une variable aléatoire uniforme dont la valeur est comprise entre 0 et 3.
+				
+				Le cas 3 est la mise place du \emph{Vehicle to Grid} : on considère que 66 \% des véhicules électriques sont concernés par ce procédé, c'est-à-dire que non seulement ils ne se rechargent pas, mais en plus fournissent une puissance de 2kW au réseau électrique, entre 18h et 18h $+\ H$, où $H$ est la même variable aléatoire que ci-dessus.
+				
+				Les résultats sont présentés sur la figure \vref{fig.usecases}.
+				
+				\begin{figure}[!h]
+					\centering
+					\begin{tikzpicture}
+						\begin{axis}[
+						/pgf/number format/.cd,
+						use comma,
+						1000 sep={ },
+						height = 8cm,
+						width = 15cm,
+						axis x line = bottom,
+						axis y line = left,
+						xlabel = Heures,
+						ylabel = Consommation (kW)
+						]
+						\addplot[mark = , smooth, color=blue] file{fig/useCases/cas1.csv};
+						\addlegendentry{Cas 1};
+						\addplot[mark = , smooth, color=violet] file{fig/useCases/cas2.csv};
+						\addlegendentry{Cas 2};
+						\addplot[mark = , smooth, color=yellow] file{fig/useCases/cas3.csv};
+						\addlegendentry{Cas 3};
+						\end{axis}
+					\end{tikzpicture}
+					\caption{Effet de la mise en place des systèmes \emph{Smart Grid} et \emph{Vehicle to Grid} sur la courbe de charge. \label{fig.usecases}}
+				\end{figure}
+				
+				
+
+				
+				
 			
 		\subsection{Difficultés rencontrées}
 		
