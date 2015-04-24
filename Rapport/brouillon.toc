@@ -30,5 +30,5 @@
 \contentsline {subsubsection}{\numberline {4.6.1}Cas de r\IeC {\'e}f\IeC {\'e}rence}{27}{subsubsection.4.6.1}
 \contentsline {subsubsection}{\numberline {4.6.2}Influence de l'\IeC {\'e}tat de charge initial}{28}{subsubsection.4.6.2}
 \contentsline {subsubsection}{\numberline {4.6.3}Influence de la r\IeC {\'e}partition des bornes}{29}{subsubsection.4.6.3}
-\contentsline {subsubsection}{\numberline {4.6.4}Influence de la mise en place des syst\IeC {\`e}mes \emph {Smart-Grid}{} et \emph {Vehicle to Grid}}{29}{subsubsection.4.6.4}
-\contentsline {section}{Conclusion}{30}{figure.caption.17}
+\contentsline {subsubsection}{\numberline {4.6.4}Influence de la mise en place des syst\IeC {\`e}mes \emph {Smart-Grid}{} et \emph {Vehicle to Grid}}{30}{subsubsection.4.6.4}
+\contentsline {section}{Conclusion}{31}{figure.caption.17}

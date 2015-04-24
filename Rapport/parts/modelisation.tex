@@ -378,7 +378,7 @@
 					\end{tikzpicture}
 					\caption{Effet de la répartition des bornes sur la courbe de charge. \label{fig.repartitionBornes}}
 				\end{figure}
-				
+				On observe que la répartition des bornes n’influent que très peu sur le pic entre 18h et 21h car celui-ci est dû au nombre d’utilisateurs qui possèdent une borne chez eux et cette valeur change peu dans notre modélisation. Par contre, le pic de consommation entre 8h et 10h (arrivée au travail) est très affecté car si les utilisateurs ont accès à une borne au travail ils l’utiliseront. On peut soulever un point qui parait étonnant: plus les utilisateurs ont accès à un grand nombre de bornes plus ils rechargent leur véhicule. En effet, le fait qu’ils rechargent leur véhicule à 9h devrait avoir pour effet de diminuer le pic de 19h alors que ce n’est pas le cas. Néanmoins, l'étude du Club-Alsace nous avait appris que la part d'utilisateurs qui ne rechargeaient pas leur véhicule tous les jours n'est pas négligeable. Nous avons donc une piste d'amélioration de notre modèle sur ce point.
 				
 				
 				\subsubsection{Influence de la mise en place des systèmes \smartgrid{} et \emph{Vehicle to Grid}}
@@ -418,5 +418,7 @@
 					\end{tikzpicture}
 					\caption{Effet de la mise en place des systèmes \smartgrid{} et \emph{Vehicle to Grid} sur la courbe de charge. \label{fig.usecases}}
 				\end{figure}
+				
+				Le pic de 9h n’est pas affecté car le \smartgrid{} et le \emph{Vehicle to Grid} sont installés à la maison des utilisateurs. On observe que le pic de 19h est très réduit dans le cas 2 et devient même négatif dans le cas 3, à cause du fait que nous supposons qu’un grand nombre de personnes accepte ces options. Cependant on voit que cela n’est pas bénéfique dans le cas 3 où un nouveau pic de consommation est créé à minuit. Certes, il est plus pratique que le pic de consommation associé aux voitures électriques soit à minuit, car il n’est plus en même temps que celui associé aux appareils électroménagers de la maison, mais il ne faut pas se satisfaire de cela et chercher à mettre en place un moyen qui dépendrait du nombre de personnes qui souscrirait aux 2 offres et d’adapter les horaires où ces options fonctionnent pour lisser ces pics. D'autre part, il serait plus intéressant de proposer deux plages horaires pour le \smartgrid{}: durant le pic du matin et durant le pic du soir, en adaptant les proportions de véhicules concernés (on n'a peut-être pas besoin de tant de \emph{Vehicle to Grid} lors du pic du soir par exemple).
 
 		
