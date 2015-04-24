@@ -1,0 +1,60 @@
+\setcounter{table}{0} \renewcommand{\thetable}{A.\arabic{table}} 
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|}	
+\hline
+\textbf{Distance aller parcourue (\si{km})} & \textbf{Proportion (\%{})} \\
+\hline
+$<2$ & 12,2 \\
+$[2,5]$ & 15,9 \\
+$[5,10]$ & 21,0 \\
+$[10,20]$ & 23,9 \\
+$[20,40]$ & 20,0 \\
+$[40,80]$ & 5,9 \\
+$>80$ & 1,0 \\
+\hline
+\end{tabular}
+\caption{Distances aller des trajets domiciles-travail en France (source: Enquête nationale transports et déplacements 2008 \cite{enqueteGouv}). \label{distance}}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c||c|c|c|}
+\hline
+\textbf{Véhicule} & \textbf{Proportion} & \textbf{Taille de la batterie (kWh)} & \textbf{Autonomie en km} \\
+\hline
+BMW i3  &  0.011474    &  18,8  &  140 \\
+Nissan Leaf  &  0.160241   &  24  &  199 \\
+Citroen c-zero & 0.209786  & 16 & 130 \\
+VW e-up & 0.014463  & 18,7 & 130 \\
+Tesla S & 0.015167  & 60 & 426 \\
+ZOE & 0.506836  & 22 & 210 \\
+Renault Fluence ZE & 0.031960  & 22 & 185 \\
+Smart ForTwo & 0.050073  & 17,6 & 145 \\
+\hline
+\end{tabular}
+\caption{Caractéristiques des véhicules électriques considérés (source: \url{www.automobile-propre.com} \cite{donneesVehicule}, Wikipédia).\label{carVE}}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c||c|c|}
+\hline
+1h & 0,41\% & 13h & 0,68\%\\
+2h & 0,41\% & 14h & 0,68\%\\
+3h & 0,41\% & 15h & 0,68\%\\
+4h & 0,41\% & 16h & 3,06\%\\
+5h & 0,41\% & 17h & 3,06\%\\
+6h & 0,00\% & 18h & 9,18\%\\
+7h & 0,00\% & 19h & 25,51\%\\
+8h & 0,41\% & 20h & 27,55\%\\
+9h & 0,41\% & 21h & 15,31\%\\
+10h & 0,41\% & 22h & 3,40\%\\
+11h & 0,41\% & 23h & 3,40\%\\
+12h & 0,41\% & 24h & 3,40\%\\
+\hline
+\end{tabular}
+\caption{Répartition des horaires de retour du travail par tranche de \SI{1}{\hour} (source : Enquête trajets domicile-travail réalisée par l'ORSTIF en 2010 \cite{ORSTIF}).\label{horaires}}
+\text{}
+\end{table}

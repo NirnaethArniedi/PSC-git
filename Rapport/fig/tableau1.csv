@@ -1,52 +1,26 @@
-Mois,Immatriculations de nouveaux VE
-Janvier 2011,100
-Février,136
-Mars,248
-Avril,187
-Ami,143
-Juin,141
-Juillet,64
-Août,108
-Septembre,301
-Octobre,202
-Novembre,466
-Décembre,530
-Janvier 2012,311
-Février,406
-Mars,483
-Avril,395
-Ami,564
-Juin,112
-Juillet,594
-Août,960
-Septembre,514
-Octobre,763
-Novembre,330
-Décembre,231
-Janvier 2013,250
-Février,648
-Mars,1350
-Avril,940
-Ami,688
-Juin,903
-Juillet,492
-Août,403
-Septembre,644
-Octobre,1058
-Novembre,694
-Décembre,709
-Janvier 2014,409
-Février,411
-Mars,709
-Avril,821
-Ami,902
-Juin,1050
-Juillet,743
-Août,366
-Septembre,1514
-Octobre,1076
-Novembre,911
-Décembre,1643
-Janvier 2015,619
-Février,1084
-Mars,1174
+Mois,Immatriculations de nouveaux VE,Mois,Immatriculations
+2011-01-01,100,Mars,1350
+Février,136,Avril,940
+Mars,248,Mai,688
+Avril,187,Juin,903
+Mai,143,Juillet,492
+Juin,141,Août,403
+Juillet,64,Septembre,644
+Août,108,Octobre,1058
+Septembre,301,Novembre,694
+Octobre,202,Décembre,709
+Novembre,466,2014-01-01,409
+Décembre,530,Février,411
+2012-01-01,311,Mars,709
+Février,406,Avril,821
+Mars,483,Mai,902
+Avril,395,Juin,1050
+Mai,564,Juillet,743
+Juin,112,Août,366
+Juillet,594,Septembre,1514
+Août,960,Octobre,1076
+Septembre,514,Novembre,911
+Octobre,763,Décembre,1643
+Novembre,330,2015-01-01,619
+Décembre,231,Février,1084
+2013-01-01,250,Mars,1174
