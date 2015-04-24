@@ -50,11 +50,10 @@ expproduct = \cdot
 \usepackage[coverpage,fancysections,twoside]{polytechnique-psc}
 
 
-
-
-
-
-\usepackage{hyperref}
+\usepackage{url}
+\usepackage{breakurl}
+\def\UrlBreaks{\do\/\do-\do_}
+\usepackage[breaklinks]{hyperref}
 \hypersetup{%
  pdftitle = {PSC - Rapport final},%
  pdfsubject = {},%
