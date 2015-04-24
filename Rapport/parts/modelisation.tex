@@ -252,13 +252,13 @@
 			\centering
 			\begin{tabular}{|c|c|}
 			\hline
-			Nombre de Véhicule ($N$) & 30000 \\
+			Nombre de Véhicule ($N$) & 163000 \\
 			\hline
-			\lstinline|deltaT| & \SI{1}{\min} \\
+			\lstinline|deltaT| & \SI{2}{\min} \\
 			\hline
-			Durée de la simulation & 10 jours \\
+			Durée de la simulation & 5 jours \\
 			\hline
-			Nombre d'itérations & 10 \\
+			Nombre d'itérations & 4 \\
 			\hline
 			\end{tabular}
 			\end{table}
@@ -290,7 +290,7 @@
 				\end{table}
 				Dans ces modélisations, il n'y a aucun \emph{use case} d'utilisé, la fonction \lstinline|smartGrid| retourne la valeur \lstinline|BRANCHE_EN_CHARGE| si la voiture n'est pas pleinement chargé, \lstinline|BRANCHE_PAS_EN_CHARGE| si non.
 				
-				Les courbes présentées sur la figure \vref{fig.socInitVariable} sont celles obtenues au dixième jour de modélisation.
+				Les courbes présentées sur la figure \vref{fig.socInitVariable} sont celles obtenues au cinquième jour de modélisation.
 				
 				\begin{figure}[!h]
 					\centering
@@ -318,17 +318,17 @@
 					\addlegendentry{Cas 5};
 						\end{axis}
 					\end{tikzpicture}
-					\caption{Effet de l'état de charge initial sur la courbe de charge résultat au bout de 10 jours. \label{fig.socInitVariable}}
+					\caption{Effet de l'état de charge initial sur la courbe de charge résultat au bout de 5 jours. \label{fig.socInitVariable}}
 				\end{figure}			
 				
-				On constate que quelque soit l'état initial choisi il y a convergence des modélisation au bout d'un temps suffisamment long. Cela nous permet de choisir arbitrairement un état de charge initial de 100 \% pour le reste de nos modélisations sans que cette décision n'impacte sur la généralité de notre étude. 
+				On constate que quelque soit l'état initial choisi il y a convergence des modélisation au bout d'un temps suffisamment long. Cela nous permet de choisir arbitrairement un état de charge initial de \SI{100}{\percent} pour le reste de nos modélisations sans que cette décision n'impacte la généralité de notre étude. 
 		
 				
 				\subsubsection{Influence de la répartition des bornes}
 				
 				Nous avons aussi étudié l'influence de la répartition des bornes sur l'allure de la courbe de charge.
 				
-				Une fois encore nous avons comparés au dixième jour de modélisation différents cas : 
+				Une fois encore nous avons comparés au cinquième jour de modélisation différents cas : 
 				\begin{table}[h!]
 				\centering
 				\begin{tabular}{|c||c|c|c|}
@@ -339,14 +339,14 @@
 					\hline
 					Cas 2 & 98 & 66 & 50\\
 					\hline
-					Cas 3 & 99 & 80 & 95\\
+					Cas 3 & 99 & 80 & 90\\
 					\hline
 				\end{tabular}
 				\end{table}		
 				
-				Le cas 1 correspond à la réalité pour les détenteurs de véhicules électriques actuels.
+				Le cas 1 correspond à la situation actuelle pour les détenteurs de véhicules électriques actuels.
 				
-				Les courbes sont présentés en figure \vref{fig.repartitionBornes}. Comme dans le cas précédent, aucune implémentation de \emph{smart grid} n'est mise en place.
+				Les courbes sont présentés en figure \vref{fig.repartitionBornes}. Comme dans le cas précédent, aucune implémentation de \smartgrid{} n'est mise en place.
 				
 				\begin{figure}[!h]
 					\centering
