@@ -190,8 +190,6 @@
 			
 			%\input{parts/organigramme/simulation}
 		
-		
-		\clearpage
 		\subsection{  Bornes de recharge et \emph{use case} } \label{sec.useCases}
 		
 		Nous avons plusieurs possibilités de prédiction en ce qui concerne les infrastructures de recharge. En effet celles-ci peuvent avoir différentes répartitions géographiques sur le territoire (seulement au domicile des utilisateurs ou bien aussi sur leur lieu de travail par exemple).
@@ -368,7 +366,7 @@
 				
 				Le cas 2 est la mise en place du \smartgrid{}, , on se base sur les résultats de l'étude \cite{reacUtilisateurs} en ce qui concerne son acceptation par les utilisateurs : on considère que \SI{75}{\percent} des véhicules électriques sont concernés par ce procédé, c'est-à-dire qu'ils acceptent de ne pas se recharger entre \SI{18}{\hour} et $\SI{18}{\hour}+H$ où $H$ est une variable aléatoire uniforme dont la valeur est comprise entre 0 et 3.
 				
-				Le cas 3 est la mise place du \emph{Vehicle to Grid}, on utilise la même étude \cite{reacUtilisateurs} pour définir le taux d'acceptation : on considère que \SI{66}{\percent} des véhicules électriques qui ont accepté le \smartgrid{} (cas précédent) sont concernés par ce procédé, c'est-à-dire que non seulement ils ne se rechargent pas, mais en plus fournissent une puissance de \SI{2}{\kilo\watt} au réseau électrique, durant la même période que dans le cas précédent.
+				Le cas 3 est la mise place du \emph{Vehicle to Grid}, on utilise la même étude \cite{reacUtilisateurs} pour définir le taux d'acceptation : on considère que \SI{66}{\percent} des véhicules électriques qui ont accepté le \smartgrid{} (cas précédent) sont concernés par ce procédé, c'est-à-dire que non seulement ils ne se rechargent pas, mais en plus fournissent une puissance de \SI{2}{\kilo\watt} au réseau électrique, durant la même période que dans le cas précédent. On considère que la batterie ne peut pas céder la même puissance quand elle se recharge que quand elle donne au réseau, c'est pour cela que l'on considère une puissance de \SI{2}{\kilo\watt} et non de \SI{3}{\kilo\watt}.
 				
 				Les résultats sont présentés sur la figure \vref{fig.usecases}.
 				

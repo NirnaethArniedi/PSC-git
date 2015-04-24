@@ -81,6 +81,10 @@ expproduct = \cdot
 \subtitle{Modélisation de l'impact de la recharge des véhicules électriques sur le réseau}
 \author{ Vincent \textsc{Dufour-Décieux} \\ Odilon \textsc{Formery} \\ Ahmed \textsc{Krarti} \\ Louis \textsc{Legrand} \\ Augustin \textsc{Lenormand} \\ Camille \textsc{Masset} }
 
+
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
 \begin{document}
 
 \maketitle
@@ -90,14 +94,23 @@ expproduct = \cdot
 
 \input{parts/introduction}
 
+\newpage
 \input{parts/evolution_du_projet}
 
+\newpage
 \input{parts/contexte_donnees}
 
+\newpage
 \input{parts/diffusion}
 
+\newpage
+\null
+\newpage
 \input{parts/modelisation}
 
+\newpage
+\null
+\newpage
 \input{parts/conclusion}
 
 \pagebreak
@@ -106,7 +119,7 @@ expproduct = \cdot
 \bibliography{parts/sources}
 \clearpage
 \appendix
-\section{Annexes}
+
 
 \include{parts/tableauAnnexe}
 \end{document}
