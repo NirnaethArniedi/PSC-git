@@ -33,6 +33,7 @@
 \usepackage{listings}
 \usepackage{epstopdf}
 
+
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{arrows}
@@ -51,9 +52,11 @@ expproduct = \cdot
 
 
 \usepackage{url}
+\usepackage[breaklinks]{hyperref}
 \usepackage{breakurl}
 \def\UrlBreaks{\do\/\do-\do_}
-\usepackage[breaklinks]{hyperref}
+
+
 \hypersetup{%
  pdftitle = {PSC - Rapport final},%
  pdfsubject = {},%
@@ -82,14 +85,6 @@ expproduct = \cdot
 
 \maketitle
 
-\newpage
-\renewcommand{\thepage}{}
-\thispagestyle{empty}
-\null
-\newpage
-
-\renewcommand{\thepage}{\arabic{page}}
-\setcounter{page}{1}
 
 \tableofcontents
 

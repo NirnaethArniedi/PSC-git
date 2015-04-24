@@ -32,7 +32,7 @@ Les fournisseurs rencontrent des difficultés à répondre à la demande des cli
 
 
 	\subsubsection{Pic de consommation}
-	Une pointe de consommation électrique est la consommation la plus élevée sur un réseau électrique. Elle peut résulter de plusieurs facteurs tels que l'heure de la journée ou la température extérieure.
+	Une pointe de consommation électrique est la consommation la plus élevée sur un réseau électrique. Elle peut résulter de plusieurs facteurs tels que l'heure de la journée ou la température extérieure, ainsi que le montre la figure~\vref{courbeCharge}.
 	
 	On en distingue trois types majeurs :
 	\begin{itemize}
@@ -49,6 +49,35 @@ Par exemple, la perte d'un degré de température se traduit en France en 2012 p
 Quelles sont les solutions pour gérer ces pics ? Plusieurs moyens sont mis en \oe{}uvre par les gestionnaires de réseau.
 La solution la plus évidente et la plus ancienne consistait en l'augmentation de la capacité de production par le biais de construction de nouvelles infrastructures de production, de transport et de distribution. Mais cette solution a très vite atteint ses limites d'une part car elle présente des risques environnementaux (émission de \ce{CO2}) mais aussi des risques de \emph{blackout} dus à la surcharge d'alimentation.
 Une autre solution consiste à baisser le niveau de la consommation en commandant à un opérateur dit \og{}d'effacement\fg{} la coupure immédiate et coordonnée de certains postes de consommation; tout cela est géré par des réseaux intelligents : les \smartgrids{}.
+
+\bigskip
+
+\begin{figure}[!h]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	legend entries = {21/01/2015, 17/07/2014},
+	legend style = {at = {(0.95, 0.05)}, anchor = south east}, 
+	/pgf/number format/.cd,
+	use comma,
+	1000 sep={ },
+	height = 8cm,
+	width = 15cm,
+	axis x line = bottom,
+	ymin = 0,
+	axis y line = left,
+	xlabel = Heures,
+	ylabel = Consommation (MW)
+	]
+	\addplot[mark = , smooth, color=blue] table[x=Heures,y=2015-01-21] {fig/courbesRTE.txt};
+	%					\addlegendentry{21/01/2015};
+	\addplot[mark =, smooth, color=red] table[x=Heures,y=2014-07-17] {fig/courbesRTE.txt};
+	%					\addlegendentry{17/07/2014}
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Courbe de charge du réseau français un jour d'hiver (en bleu) et un jour d'été (en rouge)}
+	\label{courbeCharge}
+\end{figure}
 
 
 \subsubsection{Les \smartgrids{}}
@@ -108,5 +137,6 @@ Ces données nous ont été utiles mais nous ne pouvions pas déterminer à quel
 	\item l'\og{}Enquête nationale des transports et des déplacements réalisés en 2008\fg{} \cite{enqueteGouv} qui nous a permis d'avoir accès à la distance moyenne des trajets et à leur durée moyenne.
 \end{itemize}
 \bigskip
+En ce qui concerne l'acceptation du décalage de la recharge et du système \emph{Vehicle to Grid} par les utilisateurs nous nous sommes basés sur un sondage fait à l'échelle européenne par le consortium \emph{Grid for Vehicles} \cite{reacUtilisateurs}.
 
 Ces données sont suffisamment récentes pour être utilisées lors de notre modélisation.
